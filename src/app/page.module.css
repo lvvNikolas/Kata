@@ -1,168 +1,441 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+/* Header Section */
+.header {
+  background: linear-gradient(135deg, #1b1b3a, #000); /* Gradient background */
+  color: #fff;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  height: 100vh;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
+.headerWrapper {
   display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  max-width: 1200px;
+  width: 100%;
 }
 
-.footer img {
-  flex-shrink: 0;
+/* Logo Styles */
+.logoContainer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.logoHighlight {
+  color: #1e90ff; /* Blue highlight for the dot */
+}
 
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+.logo:hover {
+  color: #1e90ff; /* Change color on hover */
+}
+
+/* Main Content */
+.headerContent {
+  flex: 1;
+  text-align: left;
+  z-index: 1;
+}
+
+.headerContent h1 {
+  font-size: 72px; /* Large headline */
+  line-height: 1.2;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: #f9f9f9;
+}
+
+.headerContent h1 .highlight {
+  color: #1e90ff; /* Highlight important words */
+}
+
+.statsContainer {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+.statItem p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.statItem h2 {
+  font-size: 48px;
+  color: #fff;
+}
+
+.ctaButton {
+  background-color: #1e90ff;
+  color: #fff;
+  padding: 16px 32px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #1558b3;
+  transform: translateY(-3px); /* Button lift on hover */
+  box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+}
+
+/* Graphic */
+.headerGraphic {
+  flex: 1;
+  position: relative;
+  z-index: 0;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
+/* Декоративные элементы */
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse 2s infinite;
+}
 
-  .main {
-    align-items: center;
-  }
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: rgba(30, 144, 255, 0.2);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse 2s infinite;
+}
 
-  .main ol {
-    text-align: center;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-
-  .ctas {
-    flex-direction: column;
+  50% {
+    transform: scale(1.1);
   }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  100% {
+    transform: scale(1);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+
+/* About Section */
+.aboutSection {
+  background: linear-gradient(135deg, #0f2027, #0d0d0e, #111213); /* Градиентный фон */
+  color: #fff;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden; /* Для скрытия декоративных элементов */
+}
+
+.aboutWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.aboutContent {
+  flex: 1;
+  padding-right: 40px;
+  text-align: left;
+}
+
+.aboutContent h2 {
+  font-size: 64px; /* Крупный заголовок */
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+.aboutContent p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d9d9d9;
+}
+
+.aboutAside {
+  flex: 1;
+  padding-left: 40px;
+  text-align: right;
+  font-size: 18px;
+  color: #ccc;
+  border-left: 2px solid rgba(255, 255, 255, 0.3); /* Разделительная линия */
+}
+
+.aboutAside p {
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Декоративные элементы */
+.aboutSection::before,
+.aboutSection::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05); /* Полупрозрачный декоративный элемент */
+  z-index: 0;
+}
+
+.aboutSection::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  border-radius: 50%;
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
+}
+
+.aboutSection::after {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  right: -100px;
+  border-radius: 50%;
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
+}
+
+/* Services Section */
+.servicesSection {
+  background: linear-gradient(135deg, #141e30, #243b55); /* Градиентный фон */
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.servicesHeader {
+  margin-bottom: 50px;
+}
+
+.servicesHeader h2 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+.servicesSubtitle {
+  font-size: 20px;
+  color: #aaa;
+}
+
+.servicesList {
+  display: flex;
+  flex-wrap: wrap; /* Услуги адаптивно располагаются в ряды */
+  justify-content: center; /* Центрирование блоков */
+  gap: 40px; /* Расстояние между блоками */
+}
+
+.serviceItem {
+  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
+  padding: 30px;
+  max-width: 300px; /* Ширина блока */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация */
+  text-align: left;
+}
+
+.serviceItem:hover {
+  transform: translateY(-10px); /* Поднимаем блок при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Увеличиваем тень */
+}
+
+.serviceIcon {
+  width: 60px;
+  height: 60px;
+  background-color: #1e90ff; /* Круглый элемент-иконка */
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.serviceItem h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.serviceItem p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Portfolio Section */
+.portfolioSection {
+  background-color: #000; /* Чистый черный фон */
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.portfolioHeader {
+  margin-bottom: 50px;
+}
+
+.portfolioHeader h2 {
+  font-size: 64px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.portfolioSubtitle {
+  font-size: 20px;
+  color: #aaa;
+}
+
+/* Список проектов */
+.projectList {
+  list-style: none; /* Убираем стандартные маркеры списка */
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px; /* Ограничение ширины списка */
+  text-align: left; /* Текст выравнивается влево */
+}
+
+.projectItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Разделительная линия */
+  transition: background-color 0.3s ease;
+}
+
+.projectItem:last-child {
+  border-bottom: none; /* Убираем линию для последнего элемента */
+}
+
+.projectLink {
+  display: flex;
+  justify-content: space-between; /* Распределяем текст по краям */
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.projectLink span:first-child {
+  font-weight: bold; /* Название проекта выделяется */
+}
+
+.projectLink span:last-child {
+  color: #aaa; /* Дополнительная информация серого цвета */
+}
+
+.projectLink:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Фон при наведении */
+  color: #1e90ff; /* Ссылка подсвечивается */
+}
+
+.projectLink:hover span:last-child {
+  color: #1e90ff; /* Подсвечиваем дополнительный текст */
+}
+
+/* Contact Section */
+.contactSection {
+  background: linear-gradient(135deg, #141e30, #222222); /* Градиентный фон */
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contactWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contactWrapper h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #1e90ff;
+}
+
+.contactWrapper p {
+  font-size: 20px;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contactItem {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  padding: 15px 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contactItem:hover {
+  background: rgba(30, 144, 255, 0.3); /* Подсвечивание при наведении */
+  color: #1e90ff;
+}
+
+.contactItem span {
+  font-weight: bold;
+}
+
+/* Анимация появления */
+.contactSection {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,42 +1,97 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
+/* src/app/globals.css */
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-a {
-  color: inherit;
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #0070f3;
+  padding: 1rem;
+}
+
+.nav a {
+  color: white;
   text-decoration: none;
+  font-size: 1.2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 2rem;
+  min-height: 80vh;
+}
+
+/* Footer */
+.footer {
+  background-color: #000; /* Черный фон */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerLeft,
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerLink {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: #1e90ff; /* Синий при наведении */
+}
+
+.footerSocials {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcon img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.socialIcon:hover img {
+  transform: scale(1.2); /* Увеличение иконки при наведении */
+  opacity: 0.8; /* Легкое затемнение */
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footerLeft,
+  .footerRight {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
   }
 }
