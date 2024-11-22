@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Используем Image из next/image
 import styles from '../page.module.css';
 
 export default function Header() {
@@ -21,7 +22,7 @@ export default function Header() {
           </h1>
           <div className={styles.statsContainer}>
             <div className={styles.statItem}>
-              <p>Active users in the applications that we've created</p>
+              <p>Active users in the applications that we&apos;ve created</p>
               <h2>1M</h2>
             </div>
             <div className={styles.statItem}>
@@ -34,7 +35,14 @@ export default function Header() {
 
         {/* Graphic */}
         <div className={styles.headerGraphic}>
-          <img src="/images/header.svg" alt="Header graphic" className={styles.image} />
+          <Image
+            src="/images/header.svg"
+            alt="Header graphic"
+            className={styles.image}
+            width={600} // Укажите ширину изображения
+            height={400} // Укажите высоту изображения
+            priority // Ускоряет загрузку изображения
+          />
         </div>
       </div>
     </header>

@@ -6,7 +6,7 @@ export default function ServicesSection() {
     <section id="services" className={styles.servicesSection}>
       <div className={styles.servicesHeader}>
         <h2>Our Services</h2>
-        <p className={styles.servicesSubtitle}>Empowering businesses with 12 years of expertise</p>
+        <p className={styles.servicesSubtitle}>Empowering businesses with 2 years of expertise</p>
       </div>
       <div className={styles.servicesList}>
         <div className={styles.serviceItem}>
