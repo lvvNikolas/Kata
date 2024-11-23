@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Используем Image из next/image
 import styles from '../page.module.css';
 
 export default function Header() {
@@ -33,17 +32,8 @@ export default function Header() {
           <button className={styles.ctaButton}>Work with us</button>
         </div>
 
-        {/* Graphic */}
-        <div className={styles.headerGraphic}>
-          <Image
-            src="/images/header.svg"
-            alt="Header graphic"
-            className={styles.image}
-            width={600} // Укажите ширину изображения
-            height={400} // Укажите высоту изображения
-            priority // Ускоряет загрузку изображения
-          />
-        </div>
+        {/* Decorative Graphic */}
+        <div className={styles.headerGraphic}></div>
       </div>
     </header>
   );
