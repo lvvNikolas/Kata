@@ -236,6 +236,7 @@
   .headerContent {
     text-align: center; /* Центрируем текст */
     margin-bottom: 40px; /* Увеличиваем отступ */
+    z-index: 1; /* Устанавливаем поверх графики */
   }
 
   .headerContent h1 {
@@ -262,20 +263,30 @@
   /* Декоративные элементы */
   .headerGraphic {
     flex: 1;
-    position: relative;
+    position: absolute; /* Центрируем графику */
+    top: 50%; /* Ставим по центру экрана */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Увеличиваем размер графики */
+    height: 400px;
+    z-index: 0; /* Графика остаётся позади текста */
   }
 
   .headerGraphic::before {
-    width: 150px;
-    height: 150px;
+    content: '';
+    position: absolute;
+    width: 350px; /* Увеличенный размер внутреннего круга */
+    height: 350px;
     background: radial-gradient(circle, rgba(30, 144, 255, 0.5), transparent);
     border-radius: 50%;
     animation: pulseGraphic 2.5s infinite;
   }
 
   .headerGraphic::after {
-    width: 200px;
-    height: 200px;
+    content: '';
+    position: absolute;
+    width: 450px; /* Увеличенный размер внешнего круга */
+    height: 450px;
     border: 2px solid rgba(30, 144, 255, 0.3);
     border-radius: 50%;
     animation: spinGraphic 6s linear infinite;
@@ -285,19 +296,20 @@
   .header::before {
     top: -30px;
     left: -30px;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     background: rgba(255, 255, 255, 0.1);
   }
 
   .header::after {
     bottom: -30px;
     right: -30px;
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     background: rgba(30, 144, 255, 0.2);
   }
 }
+
 
 
 /* About Section */
@@ -377,6 +389,63 @@
   border-radius: 50%;
   box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
 }
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  /* Общие настройки */
+  .aboutSection {
+    padding: 50px 15px; /* Уменьшаем отступы */
+  }
+
+  .aboutWrapper {
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    gap: 20px; /* Уменьшаем расстояние между элементами */
+  }
+
+  /* Контент */
+  .aboutContent {
+    padding-right: 0; /* Убираем правый отступ */
+    text-align: center; /* Центрируем текст */
+  }
+
+  .aboutContent h2 {
+    font-size: 36px; /* Уменьшаем заголовок */
+    margin-bottom: 15px;
+  }
+
+  .aboutContent p {
+    font-size: 16px; /* Уменьшаем размер текста */
+    line-height: 1.5;
+  }
+
+  /* Блок Aside */
+  .aboutAside {
+    padding-left: 0; /* Убираем левый отступ */
+    text-align: center; /* Центрируем текст */
+    border-left: none; /* Убираем разделительную линию */
+  }
+
+  .aboutAside p {
+    font-size: 16px; /* Уменьшаем текст */
+    line-height: 1.4;
+  }
+
+  /* Декоративные элементы */
+  .aboutSection::before {
+    width: 200px; /* Уменьшаем размер круга */
+    height: 200px;
+    top: -50px;
+    left: -50px;
+  }
+
+  .aboutSection::after {
+    width: 150px; /* Уменьшаем размер круга */
+    height: 150px;
+    bottom: -50px;
+    right: -50px;
+  }
+}
+
 
 /* Services Section */
 .servicesSection {
