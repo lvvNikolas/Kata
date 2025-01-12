@@ -1,4 +1,5 @@
 // src/app/components/Portfolio.js
+import Link from 'next/link'; // Импортируем Link для перехода
 import styles from '../page.module.css';
 
 export default function Portfolio() {
@@ -9,6 +10,12 @@ export default function Portfolio() {
         <p className={styles.portfolioSubtitle}>2 years of expertise</p>
       </div>
       <ul className={styles.projectList}>
+        <li className={styles.projectItem}>
+          <a href="#" className={styles.projectLink}>
+            <span>Lungs test exercise</span>
+            <span>Mobile | Tools</span>
+          </a>
+        </li>
         <li className={styles.projectItem}>
           <a href="#" className={styles.projectLink}>
             <span>Engineering iq test</span>
@@ -28,6 +35,11 @@ export default function Portfolio() {
           </a>
         </li>
       </ul>
+      <div className={styles.privacyPolicy}>
+        <Link href="/privacy-policy" className={styles.privacyLink}>
+          Privacy Policy
+        </Link>
+      </div>
     </section>
   );
 }
