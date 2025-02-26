@@ -13,8 +13,8 @@ export default function Layout({ children }) {
             <footer className="footer">
       <div className="footerContainer">
         <div className="footerLeft">
-          <p>© 2024 Kata. All rights reserved.</p>
-          <p>Address: 730 Quail Meadow , Irvine CA, USA</p>
+          <p>© 2025 Kata. All rights reserved.</p>
+          <p>Address: 40 Pacifica, Irvine, CA 92618</p>
         </div>
         <div className="footerRight">
           <a href="#" className="footerLink">Privacy Policy</a>
