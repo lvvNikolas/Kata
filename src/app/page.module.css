@@ -446,6 +446,72 @@
   }
 }
 
+/* Values Section */
+.valuesSection {
+  background: linear-gradient(135deg, #141e30, #222);
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.valuesHeader h2 {
+  font-size: 48px;
+  color: #1e90ff;
+  margin-bottom: 10px;
+}
+
+.valuesSubtitle {
+  font-size: 20px;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.valuesList {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.valueItem {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.valueItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.valueItem h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.valueItem p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .valuesList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .valueItem {
+    max-width: 100%;
+  }
+}
+
+
 
 /* Services Section */
 .servicesSection {
