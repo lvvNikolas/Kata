@@ -731,3 +731,59 @@
 .privacyLink:hover {
   color: #1558b3;
 }
+
+/* Technology Stack Section */
+/* Tech Stack Section */
+.techStackSection {
+  background: linear-gradient(135deg, #141e30, #243b55); 
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.techStackHeader {
+  margin-bottom: 50px;
+}
+
+.techStackHeader h2 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+.techStackSubtitle {
+  font-size: 20px;
+  color: #aaa;
+}
+
+.techStackList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.techStackItem {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.techStackItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.techStackItem h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1e90ff;
+}
+
+.techStackItem p {
+  font-size: 18px;
+  color: #ccc;
+}

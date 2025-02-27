@@ -2,8 +2,11 @@
 import Header from './components/Header';
 import About from './components/About';
 import Services from './components/Services';
+import TechnologyStack from './components/TechnologyStack';
 import Contact from './components/Contact';
 import Portfolio from './components/Portfolio';
+
+
 
 export default function HomePage() {
   return (
@@ -12,7 +15,9 @@ export default function HomePage() {
       <About />
       <Services />
       <Portfolio/>
+      <TechnologyStack />
       <Contact />
+     
     </div>
   );
 }
