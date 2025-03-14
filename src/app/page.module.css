@@ -619,6 +619,7 @@
 .projectItem {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Разделительная линия */
   transition: background-color 0.3s ease;
+  padding-bottom: 10px;
 }
 
 .projectItem:last-child {
@@ -640,18 +641,36 @@
   font-weight: bold; /* Название проекта выделяется */
 }
 
-.projectLink span:last-child {
-  color: #aaa; /* Дополнительная информация серого цвета */
-}
-
 .projectLink:hover {
   background-color: rgba(255, 255, 255, 0.1); /* Фон при наведении */
   color: #1e90ff; /* Ссылка подсвечивается */
 }
 
-.projectLink:hover span:last-child {
-  color: #1e90ff; /* Подсвечиваем дополнительный текст */
+/* Иконки платформ */
+.platformIcons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 5px;
+  align-items: center;
 }
+
+.icon {
+  font-size: 24px; /* Увеличенный размер иконок */
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.iconDivider {
+  font-size: 24px;
+  color: #aaa;
+  margin: 0 5px;
+}
+
+.icon:hover {
+  color: #1e90ff;
+}
+
 
 /* Contact Section */
 .contactSection {

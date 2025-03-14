@@ -1,5 +1,6 @@
 // src/app/components/Portfolio.js
-import Link from 'next/link'; // Импортируем Link для перехода
+import Link from 'next/link';
+import { FaAndroid, FaApple } from 'react-icons/fa'; // Импортируем иконки
 import styles from '../page.module.css';
 
 export default function Portfolio() {
@@ -7,33 +8,28 @@ export default function Portfolio() {
     <section id="portfolio" className={styles.portfolioSection}>
       <div className={styles.portfolioHeader}>
         <h2>Our Projects</h2>
-        <p className={styles.portfolioSubtitle}>2 years of expertise</p>
+        <p className={styles.portfolioSubtitle}>7 years of expertise</p>
       </div>
       <ul className={styles.projectList}>
-        <li className={styles.projectItem}>
-          <a href="#" className={styles.projectLink}>
-            <span>Lungs test exercise</span>
-            <span>Mobile | Tools</span>
-          </a>
-        </li>
-        <li className={styles.projectItem}>
-          <a href="#" className={styles.projectLink}>
-            <span>Engineering iq test</span>
-            <span>Mobile | Tools</span>
-          </a>
-        </li>
-        <li className={styles.projectItem}>
-          <a href="#" className={styles.projectLink}>
-            <span>Math Game</span>
-            <span>Mobile | Utilities</span>
-          </a>
-        </li>
-        <li className={styles.projectItem}>
-          <a href="#" className={styles.projectLink}>
-            <span>10+ Android Utility Apps</span>
-            <span>Mobile | Utilities</span>
-          </a>
-        </li>
+        {[
+          { name: 'Lungs test exercise' },
+          { name: 'Engineering IQ Test' },
+          { name: 'Math Game' },
+          {name: 'Six Pack in 30 Days'},
+          {name:"Push Ups - Fitness Trainer"},
+          {name:"Legs workout - 4 Week Program"},
+          { name: '10+ Android Utility Apps' },
+        ].map((project, index) => (
+          <li key={index} className={styles.projectItem}>
+            <a href="#" className={styles.projectLink}>
+              <span>{project.name}</span>
+              <span className={styles.platformIcons}>
+                <FaAndroid className={styles.icon} />
+                <FaApple className={styles.icon} />
+              </span>
+            </a>
+          </li>
+        ))}
       </ul>
       <div className={styles.privacyPolicy}>
         <Link href="/privacy-policy" className={styles.privacyLink}>
