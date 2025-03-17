@@ -1,4 +1,5 @@
 import './globals.css'; // Подключение глобальных стилей
+import { GiUsaFlag } from 'react-icons/gi'; // Импорт иконки флага США
 
 export default function Layout({ children }) {
   return (
@@ -10,30 +11,20 @@ export default function Layout({ children }) {
       </head>
       <body>
         <main>{children}</main>
-            <footer className="footer">
-      <div className="footerContainer">
-        <div className="footerLeft">
-          <p>© 2025 Kata. All rights reserved.</p>
-          <p>Address: 40 Pacifica, Irvine, CA 92618</p>
-        </div>
-        <div className="footerRight">
-          <a href="#" className="footerLink">Privacy Policy</a>
-          <a href="#" className="footerLink">Terms of Use</a>
-          {/* <div className="footerSocials">
-            <a href="#" className="socialIcon">
-              <img src="/images/facebook-icon.svg" alt="Facebook" />
-            </a>
-            <a href="#" className="socialIcon">
-              <img src="/images/twitter-icon.svg" alt="Twitter" />
-            </a>
-            <a href="#" className="socialIcon">
-              <img src="/images/linkedin-icon.svg" alt="LinkedIn" />
-            </a>
-          </div> */}
-        </div>
-      </div>
-    </footer>
-
+        <footer className="footer">
+          <div className="footerContainer">
+            <div className="footerLeft">
+              <p>© 2025 Kata. All rights reserved.</p>
+              <p>
+                <GiUsaFlag className="footerIcon" /> Address: 40 Pacifica, Irvine, CA 92618
+              </p>
+            </div>
+            <div className="footerRight">
+              <a href="#" className="footerLink">Privacy Policy</a>
+              <a href="#" className="footerLink">Terms of Use</a>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
