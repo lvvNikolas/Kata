@@ -1,11 +1,15 @@
 import styles from '../page.module.css';
 
 const teamMembers = [
-  { name: 'Alice Johnson', role: 'CEO', img: '/images/Nikolas.PNG' },
-  { name: 'Bob Smith', role: 'CTO', img: '/images/Nikolas.PNG' },
-  { name: 'Charlie Brown', role: 'Lead Developer', img: '/images/Nikolas.PNG' },
-  { name: 'Diana Lee', role: 'Designer', img: '/images/Nikolas.PNG' },
-  { name: 'Nikolas Orlovsky', role: 'Software Engineer', img: '/images/Nikolas.PNG' },
+  { name: 'Nikolas Orlovsky', role: 'CEO', img: '/images/Nikolas.PNG' },
+  { name: 'Bob Smith', role: 'Product Manager', img: '/images/face1.jpg' },
+  { name: 'Charlie Brown', role: 'Team Lead', img: '/images/face2.jpg' },
+  { name: 'Diana Lee', role: 'UI/UX Designer', img: '/images/face3.jpg' },
+  { name: 'Aarav Sharma', role: 'QA Engineer', img: '/images/face4.jpg' },
+  { name: 'Vihaan Patel', role: 'Front-End Engineer', img: '/images/face5.jpg' },
+  { name: 'Xavier Thompson', role: 'Front-End Engineer ', img: '/images/face6.jpg' },
+  { name: 'Michael Zhang', role: 'Back-End Engineer', img: '/images/face7.jpg' },
+  { name: 'Farhan Siddiqui', role: 'Back-End Engineer', img: '/images/face8.jpg' },
 ];
 
 export default function OurTeam() {

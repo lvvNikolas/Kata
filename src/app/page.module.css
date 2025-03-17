@@ -858,36 +858,37 @@
   align-items: center;
 }
 
-.teamMember {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* CEO занимает всю первую строку и увеличенное фото */
+/* CEO занимает всю первую строку */
 .teamMember.ceo {
   grid-column: 1 / -1;
 }
 
 /* Фото CEO больше */
 .ceoPhoto {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
+  border: 4px solid #38bdf8;
 }
 
 /* Обычные фото */
 .teamPhoto {
   width: 100px;
   height: 100px;
+  border: 3px solid #38bdf8;
 }
 
 .teamPhoto,
 .ceoPhoto {
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #38bdf8;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .teamMember h3 {
@@ -912,5 +913,62 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ======== Адаптивные стили ======== */
+
+/* Малые экраны (планшеты и мобильные) */
+@media (max-width: 768px) {
+  .teamGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teamMember.ceo {
+    grid-column: unset;
+  }
+
+  /* Уменьшаем CEO фото на мобильных */
+  .ceoPhoto {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Уменьшаем обычные фото */
+  .teamPhoto {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Уменьшаем заголовки */
+  .teamWrapper h2 {
+    font-size: 32px;
+  }
+
+  .teamWrapper p {
+    font-size: 16px;
+  }
+}
+
+/* Очень маленькие экраны (телефоны) */
+@media (max-width: 480px) {
+  .ceoPhoto {
+    width: 120px;
+    height: 120px;
+  }
+
+  .teamPhoto {
+    width: 70px;
+    height: 70px;
+  }
+
+  .teamWrapper h2 {
+    font-size: 28px;
+  }
+
+  .teamWrapper p {
+    font-size: 14px;
   }
 }
