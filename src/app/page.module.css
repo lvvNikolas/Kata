@@ -972,3 +972,16 @@
     font-size: 14px;
   }
 }
+
+/* Запрет выделения и перетаскивания */
+.teamMember {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.teamPhoto,
+.ceoPhoto {
+  pointer-events: none; /* Запрещает взаимодействие (включая drag) */
+}

@@ -1,3 +1,5 @@
+'use client';
+
 import styles from '../page.module.css';
 
 const teamMembers = [
@@ -14,7 +16,11 @@ const teamMembers = [
 
 export default function OurTeam() {
   return (
-    <section id="team" className={styles.teamSection}>
+    <section
+      id="team"
+      className={styles.teamSection}
+      onContextMenu={(e) => e.preventDefault()}
+    >
       <div className={styles.teamWrapper}>
         <h2>Meet Our Team</h2>
         <p>We’re always open to communication!</p>
@@ -23,10 +29,13 @@ export default function OurTeam() {
             <div
               key={index}
               className={`${styles.teamMember} ${member.role === 'CEO' ? styles.ceo : ''}`}
+              onContextMenu={(e) => e.preventDefault()}
             >
               <img
                 src={member.img}
                 alt={member.name}
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
                 className={`${styles.teamPhoto} ${member.role === 'CEO' ? styles.ceoPhoto : ''}`}
               />
               <h3>{member.name}</h3>
