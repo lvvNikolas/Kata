@@ -1,6 +1,6 @@
 /* Header Section */
 .header {
-  background: linear-gradient(135deg, #1b1b3a, #000); /* Gradient background */
+  background: linear-gradient(135deg, #1b1b3a, #000);
   color: #fff;
   padding: 100px 20px;
   position: relative;
@@ -35,11 +35,11 @@
 }
 
 .logoHighlight {
-  color: #1e90ff; /* Blue highlight for the dot */
+  color: #1e90ff;
 }
 
 .logo:hover {
-  color: #1e90ff; /* Change color on hover */
+  color: #1e90ff;
 }
 
 /* Main Content */
@@ -49,22 +49,52 @@
   z-index: 1;
 }
 
-.headerContent h1 {
-  font-size: 72px; /* Large headline */
+.typewriter {
+  font-size: 64px;
   line-height: 1.2;
-  margin-bottom: 40px;
-  text-transform: uppercase;
+  margin-bottom: 20px;
   color: #f9f9f9;
+  text-transform: uppercase;
+  min-height: 100px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
-.headerContent h1 .highlight {
-  color: #1e90ff; /* Highlight important words */
+.cursor {
+  display: inline-block;
+  color: #1e90ff;
+  margin-left: 6px;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.subheadline {
+  font-size: 20px;
+  color: #bbbbbb;
+  margin-bottom: 30px;
+  max-width: 600px;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.headerContent h1,
+.statsContainer,
+.ctaButton {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
 }
 
 .statsContainer {
   display: flex;
   gap: 50px;
   margin-bottom: 30px;
+  animation-delay: 0.4s;
 }
 
 .statItem p {
@@ -86,39 +116,27 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  animation-delay: 0.6s;
 }
 
 .ctaButton:hover {
   background-color: #1558b3;
-  transform: translateY(-3px); /* Button lift on hover */
+  transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
 }
 
-/* Graphic */
-.headerGraphic {
-  flex: 1;
-  position: relative;
-  z-index: 0;
-}
-
-.image {
-  max-width: 100%;
-  height: auto;
-}
-
-
-@keyframes slideInRight {
+@keyframes fadeUp {
   0% {
-    transform: translateX(100px);
+    transform: translateY(30px);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-/* Декоративные элементы */
+/* Decorative Elements */
 .header::before {
   content: '';
   position: absolute;
@@ -176,129 +194,96 @@
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
+
 @keyframes pulseGraphic {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 @keyframes spinGraphic {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-
-/* Мобильная адаптация */
+/* Mobile Adaptation */
 @media (max-width: 768px) {
-  /* Контейнер заголовка */
   .header {
-    flex-direction: column; /* Ставит содержимое в колонку */
-    padding: 50px 20px; /* Уменьшаем отступы */
-    height: auto; /* Убираем фиксированную высоту */
+    flex-direction: column;
+    padding: 50px 20px;
+    height: auto;
   }
 
   .headerWrapper {
-    flex-direction: column; /* Располагаем элементы по вертикали */
-    align-items: center; /* Центруем контент */
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* Логотип */
   .logoContainer {
-    position: static; /* Убираем абсолютное позиционирование */
+    position: static;
     margin-bottom: 20px;
   }
 
   .logo {
-    font-size: 28px; /* Уменьшаем шрифт для логотипа */
+    font-size: 28px;
   }
 
-  /* Контент */
   .headerContent {
-    text-align: center; /* Центрируем текст */
-    margin-bottom: 40px; /* Увеличиваем отступ */
-    z-index: 1; /* Устанавливаем поверх графики */
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 1;
   }
 
-  .headerContent h1 {
-    font-size: 48px; /* Уменьшаем размер заголовка */
+  .typewriter {
+    font-size: 48px;
     line-height: 1.3;
   }
 
   .statsContainer {
-    flex-direction: column; /* Ставим статистику в столбик */
+    flex-direction: column;
     gap: 20px;
     margin-bottom: 20px;
   }
 
   .statItem h2 {
-    font-size: 36px; /* Уменьшаем размер цифр */
+    font-size: 36px;
   }
 
-  /* Кнопка */
   .ctaButton {
-    font-size: 16px; /* Уменьшаем размер текста */
-    padding: 12px 24px; /* Уменьшаем отступы */
+    font-size: 16px;
+    padding: 12px 24px;
   }
 
-  /* Декоративные элементы */
   .headerGraphic {
     flex: 1;
-    position: absolute; /* Центрируем графику */
-    top: 50%; /* Ставим по центру экрана */
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px; /* Увеличиваем размер графики */
+    width: 400px;
     height: 400px;
-    z-index: 0; /* Графика остаётся позади текста */
+    z-index: 0;
   }
 
   .headerGraphic::before {
-    content: '';
-    position: absolute;
-    width: 350px; /* Увеличенный размер внутреннего круга */
+    width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(30, 144, 255, 0.5), transparent);
-    border-radius: 50%;
-    animation: pulseGraphic 2.5s infinite;
   }
 
   .headerGraphic::after {
-    content: '';
-    position: absolute;
-    width: 450px; /* Увеличенный размер внешнего круга */
+    width: 450px;
     height: 450px;
-    border: 2px solid rgba(30, 144, 255, 0.3);
-    border-radius: 50%;
-    animation: spinGraphic 6s linear infinite;
   }
 
-  /* Декоративные элементы для .header */
   .header::before {
     top: -30px;
     left: -30px;
     width: 150px;
     height: 150px;
-    background: rgba(255, 255, 255, 0.1);
   }
 
   .header::after {
@@ -306,10 +291,8 @@
     right: -30px;
     width: 180px;
     height: 180px;
-    background: rgba(30, 144, 255, 0.2);
   }
 }
-
 
 
 /* About Section */
