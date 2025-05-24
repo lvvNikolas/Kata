@@ -1,7 +1,6 @@
-
 /* Services Section */
 .servicesSection {
-  background: linear-gradient(135deg, #141e30, #243b55); /* Градиентный фон */
+  background: linear-gradient(135deg, #141e30, #243b55);
   color: #fff;
   padding: 100px 20px;
   text-align: center;
@@ -14,7 +13,9 @@
 .servicesHeader h2 {
   font-size: 64px;
   margin-bottom: 20px;
-  color: #f9f9f9;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .servicesSubtitle {
@@ -24,48 +25,75 @@
 
 .servicesList {
   display: flex;
-  flex-wrap: wrap; /* Услуги адаптивно располагаются в ряды */
-  justify-content: center; /* Центрирование блоков */
-  gap: 40px; /* Расстояние между блоками */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .serviceItem {
-  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 30px;
-  max-width: 300px; /* Ширина блока */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация */
-  text-align: center; /* Выравнивание содержимого по центру */
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
 }
 
+.serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.serviceItem:nth-child(2) { animation-delay: 0.3s; }
+.serviceItem:nth-child(3) { animation-delay: 0.5s; }
+
 .serviceItem:hover {
-  transform: translateY(-10px); /* Поднимаем блок при наведении */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Увеличиваем тень */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .serviceIcon {
   width: 60px;
   height: 60px;
-  background-color: #1e90ff; /* Круглый элемент-иконка */
+  font-size: 28px;
+  background-color: #1e90ff;
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
 }
 
 .serviceItem h3 {
   font-size: 24px;
   margin-bottom: 10px;
   color: #fff;
+  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
 }
 
 .serviceItem p {
   font-size: 16px;
   color: #ccc;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .servicesList {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .serviceItem {
+    width: 100%;
+    max-width: 100%;
+  }
 }
