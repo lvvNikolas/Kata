@@ -1,0 +1,200 @@
+
+
+/* About Section */
+.aboutSection {
+  background: linear-gradient(135deg, #0f2027, #0d0d0e, #111213); /* Градиентный фон */
+  color: #fff;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden; /* Для скрытия декоративных элементов */
+}
+
+.aboutWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.aboutContent {
+  flex: 1;
+  padding-right: 40px;
+  text-align: left;
+}
+
+.aboutContent h2 {
+  font-size: 64px; /* Крупный заголовок */
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+.aboutContent p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d9d9d9;
+}
+
+.aboutAside {
+  flex: 1;
+  padding-left: 40px;
+  text-align: right;
+  font-size: 18px;
+  color: #ccc;
+  border-left: 2px solid rgba(255, 255, 255, 0.3); /* Разделительная линия */
+}
+
+.aboutAside p {
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Декоративные элементы */
+.aboutSection::before,
+.aboutSection::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05); /* Полупрозрачный декоративный элемент */
+  z-index: 0;
+}
+
+.aboutSection::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  border-radius: 50%;
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
+}
+
+.aboutSection::after {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  right: -100px;
+  border-radius: 50%;
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  /* Общие настройки */
+  .aboutSection {
+    padding: 50px 15px; /* Уменьшаем отступы */
+  }
+
+  .aboutWrapper {
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    gap: 20px; /* Уменьшаем расстояние между элементами */
+  }
+
+  /* Контент */
+  .aboutContent {
+    padding-right: 0; /* Убираем правый отступ */
+    text-align: center; /* Центрируем текст */
+  }
+
+  .aboutContent h2 {
+    font-size: 36px; /* Уменьшаем заголовок */
+    margin-bottom: 15px;
+  }
+
+  .aboutContent p {
+    font-size: 16px; /* Уменьшаем размер текста */
+    line-height: 1.5;
+  }
+
+  /* Блок Aside */
+  .aboutAside {
+    padding-left: 0; /* Убираем левый отступ */
+    text-align: center; /* Центрируем текст */
+    border-left: none; /* Убираем разделительную линию */
+  }
+
+  .aboutAside p {
+    font-size: 16px; /* Уменьшаем текст */
+    line-height: 1.4;
+  }
+
+  /* Декоративные элементы */
+  .aboutSection::before {
+    width: 200px; /* Уменьшаем размер круга */
+    height: 200px;
+    top: -50px;
+    left: -50px;
+  }
+
+  .aboutSection::after {
+    width: 150px; /* Уменьшаем размер круга */
+    height: 150px;
+    bottom: -50px;
+    right: -50px;
+  }
+}
+
+/* Values Section */
+.valuesSection {
+  background: linear-gradient(135deg, #141e30, #222);
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.valuesHeader h2 {
+  font-size: 48px;
+  color: #1e90ff;
+  margin-bottom: 10px;
+}
+
+.valuesSubtitle {
+  font-size: 20px;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.valuesList {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.valueItem {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.valueItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.valueItem h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.valueItem p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .valuesList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .valueItem {
+    max-width: 100%;
+  }
+}

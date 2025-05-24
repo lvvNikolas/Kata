@@ -1,7 +1,8 @@
 // src/app/components/Portfolio.js
 import Link from 'next/link';
 import { FaAndroid, FaApple } from 'react-icons/fa'; // Импортируем иконки
-import styles from '../page.module.css';
+// import styles from '../page.module.css';
+import styles from '../styles/Portfolio.module.css'; // Импортируем стили для портфолио
 
 export default function Portfolio() {
   return (

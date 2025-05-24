@@ -1,7 +1,6 @@
 // src/app/components/ContactSection.js
 import { FaEnvelope, FaPhone } from 'react-icons/fa'; // Импорт иконок
-import styles from '../page.module.css';
-
+import styles from '../styles/Contact.module.css'; // Импортируем стили для контактов
 export default function Contact() {
   return (
     <section id="contact" className={styles.contactSection}>

@@ -1,5 +1,6 @@
 // src/app/components/ServicesSection.js
-import styles from '../page.module.css';
+// import styles from '../page.module.css';
+import styles from '../styles/Services.module.css';
 
 export default function ServicesSection() {
   return (

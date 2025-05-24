@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import styles from '../page.module.css';
+// import styles from '../page.module.css';
+import styles from '../styles/Header.module.css';
 
 const phrases = [
   'Change is happening now',

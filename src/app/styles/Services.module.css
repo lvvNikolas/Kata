@@ -1,0 +1,71 @@
+
+/* Services Section */
+.servicesSection {
+  background: linear-gradient(135deg, #141e30, #243b55); /* Градиентный фон */
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.servicesHeader {
+  margin-bottom: 50px;
+}
+
+.servicesHeader h2 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+.servicesSubtitle {
+  font-size: 20px;
+  color: #aaa;
+}
+
+.servicesList {
+  display: flex;
+  flex-wrap: wrap; /* Услуги адаптивно располагаются в ряды */
+  justify-content: center; /* Центрирование блоков */
+  gap: 40px; /* Расстояние между блоками */
+}
+
+.serviceItem {
+  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
+  padding: 30px;
+  max-width: 300px; /* Ширина блока */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация */
+  text-align: center; /* Выравнивание содержимого по центру */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.serviceItem:hover {
+  transform: translateY(-10px); /* Поднимаем блок при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Увеличиваем тень */
+}
+
+.serviceIcon {
+  width: 60px;
+  height: 60px;
+  background-color: #1e90ff; /* Круглый элемент-иконка */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.serviceItem h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.serviceItem p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}

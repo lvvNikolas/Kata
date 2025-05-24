@@ -1,6 +1,8 @@
 'use client';
+import React from 'react';
+import styles from '../styles/OurTeam.module.css'; // Importing styles for the team section
 
-import styles from '../page.module.css';
+
 
 const teamMembers = [
   { name: 'Nikolas Orlovsky', role: 'CEO', img: '/images/Nikolas.PNG' },

@@ -1,0 +1,87 @@
+
+/* Portfolio Section */
+.portfolioSection {
+  background-color: #000; /* Чистый черный фон */
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.portfolioHeader {
+  margin-bottom: 50px;
+}
+
+.portfolioHeader h2 {
+  font-size: 64px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.portfolioSubtitle {
+  font-size: 20px;
+  color: #aaa;
+}
+
+/* Список проектов */
+.projectList {
+  list-style: none; /* Убираем стандартные маркеры списка */
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px; /* Ограничение ширины списка */
+  text-align: left; /* Текст выравнивается влево */
+}
+
+.projectItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Разделительная линия */
+  transition: background-color 0.3s ease;
+  padding-bottom: 10px;
+}
+
+.projectItem:last-child {
+  border-bottom: none; /* Убираем линию для последнего элемента */
+}
+
+.projectLink {
+  display: flex;
+  justify-content: space-between; /* Распределяем текст по краям */
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.projectLink span:first-child {
+  font-weight: bold; /* Название проекта выделяется */
+}
+
+.projectLink:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Фон при наведении */
+  color: #1e90ff; /* Ссылка подсвечивается */
+}
+
+/* Иконки платформ */
+.platformIcons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.icon {
+  font-size: 24px; /* Увеличенный размер иконок */
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.iconDivider {
+  font-size: 24px;
+  color: #aaa;
+  margin: 0 5px;
+}
+
+.icon:hover {
+  color: #1e90ff;
+}

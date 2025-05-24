@@ -1,5 +1,5 @@
-// src/app/components/TechnologyStack.js
-import styles from '../page.module.css';
+
+import styles from '../styles/TechStack.module.css';
 
 export default function TechnologyStack() {
   return (
