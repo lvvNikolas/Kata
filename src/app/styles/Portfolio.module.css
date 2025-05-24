@@ -1,7 +1,6 @@
-
 /* Portfolio Section */
 .portfolioSection {
-  background-color: #000; /* Чистый черный фон */
+  background-color: #000;
   color: #fff;
   padding: 100px 20px;
   text-align: center;
@@ -13,8 +12,10 @@
 
 .portfolioHeader h2 {
   font-size: 64px;
-  color: #fff;
   margin-bottom: 10px;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .portfolioSubtitle {
@@ -22,66 +23,111 @@
   color: #aaa;
 }
 
-/* Список проектов */
 .projectList {
-  list-style: none; /* Убираем стандартные маркеры списка */
+  list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 800px; /* Ограничение ширины списка */
-  text-align: left; /* Текст выравнивается влево */
+  max-width: 800px;
+  text-align: left;
 }
 
 .projectItem {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Разделительная линия */
-  transition: background-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
   padding-bottom: 10px;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.projectItem:nth-child(1) { animation-delay: 0.1s; }
+.projectItem:nth-child(2) { animation-delay: 0.2s; }
+.projectItem:nth-child(3) { animation-delay: 0.3s; }
+.projectItem:nth-child(4) { animation-delay: 0.4s; }
+.projectItem:nth-child(5) { animation-delay: 0.5s; }
+.projectItem:nth-child(6) { animation-delay: 0.6s; }
+.projectItem:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .projectItem:last-child {
-  border-bottom: none; /* Убираем линию для последнего элемента */
+  border-bottom: none;
 }
 
 .projectLink {
   display: flex;
-  justify-content: space-between; /* Распределяем текст по краям */
+  justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
   text-decoration: none;
   color: #fff;
   font-size: 18px;
   transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
 .projectLink span:first-child {
-  font-weight: bold; /* Название проекта выделяется */
+  font-weight: bold;
 }
 
 .projectLink:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Фон при наведении */
-  color: #1e90ff; /* Ссылка подсвечивается */
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #1e90ff;
+  transform: scale(1.01);
 }
 
-/* Иконки платформ */
 .platformIcons {
   display: flex;
   gap: 10px;
-  justify-content: flex-start;
-  margin-top: 5px;
   align-items: center;
 }
 
 .icon {
-  font-size: 24px; /* Увеличенный размер иконок */
-  color: #aaa;
-  transition: color 0.3s ease;
-}
-
-.iconDivider {
   font-size: 24px;
   color: #aaa;
-  margin: 0 5px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .icon:hover {
   color: #1e90ff;
+  transform: scale(1.2);
+}
+
+.privacyPolicy {
+  margin-top: 60px;
+}
+
+.privacyLink {
+  color: #888;
+  font-size: 16px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.privacyLink:hover {
+  color: #1e90ff;
+}
+
+@media (max-width: 768px) {
+  .projectLink {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .platformIcons {
+    justify-content: flex-start;
+  }
+
+  .portfolioHeader h2 {
+    font-size: 42px;
+  }
 }
