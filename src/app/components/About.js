@@ -26,16 +26,20 @@ export default function About() {
           <h2>Our Values</h2>
           <p className={styles.valuesSubtitle}>What drives us forward</p>
         </div>
+
         <div className={styles.valuesList}>
           <div className={styles.valueItem}>
+            <div className={styles.valueIcon}>🎯</div>
             <h3>Quality</h3>
             <p>We deliver only the best solutions that exceed expectations.</p>
           </div>
           <div className={styles.valueItem}>
+            <div className={styles.valueIcon}>⚡</div>
             <h3>Innovation</h3>
             <p>We embrace new technologies and methodologies to stay ahead.</p>
           </div>
           <div className={styles.valueItem}>
+            <div className={styles.valueIcon}>🤝</div>
             <h3>Transparency</h3>
             <p>Honesty and openness are the foundation of our relationships.</p>
           </div>

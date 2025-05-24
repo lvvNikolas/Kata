@@ -1,12 +1,10 @@
-
-
 /* About Section */
 .aboutSection {
-  background: linear-gradient(135deg, #0f2027, #0d0d0e, #111213); /* Градиентный фон */
+  background: linear-gradient(135deg, #0f2027, #0d0d0e, #111213);
   color: #fff;
   padding: 100px 20px;
   position: relative;
-  overflow: hidden; /* Для скрытия декоративных элементов */
+  overflow: hidden;
 }
 
 .aboutWrapper {
@@ -25,9 +23,11 @@
 }
 
 .aboutContent h2 {
-  font-size: 64px; /* Крупный заголовок */
+  font-size: 64px;
   margin-bottom: 20px;
   color: #f9f9f9;
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+  text-align: left;
 }
 
 .aboutContent p {
@@ -42,7 +42,7 @@
   text-align: right;
   font-size: 18px;
   color: #ccc;
-  border-left: 2px solid rgba(255, 255, 255, 0.3); /* Разделительная линия */
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .aboutAside p {
@@ -51,12 +51,11 @@
   line-height: 1.6;
 }
 
-/* Декоративные элементы */
 .aboutSection::before,
 .aboutSection::after {
   content: '';
   position: absolute;
-  background: rgba(255, 255, 255, 0.05); /* Полупрозрачный декоративный элемент */
+  background: rgba(255, 255, 255, 0.05);
   z-index: 0;
 }
 
@@ -66,7 +65,7 @@
   top: -100px;
   left: -100px;
   border-radius: 50%;
-  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1);
 }
 
 .aboutSection::after {
@@ -75,59 +74,55 @@
   bottom: -100px;
   right: -100px;
   border-radius: 50%;
-  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1); /* Мягкое свечение */
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.1);
 }
 
-/* Мобильная адаптация */
 @media (max-width: 768px) {
-  /* Общие настройки */
   .aboutSection {
-    padding: 50px 15px; /* Уменьшаем отступы */
+    padding: 50px 15px;
   }
 
   .aboutWrapper {
-    flex-direction: column; /* Располагаем элементы по вертикали */
-    gap: 20px; /* Уменьшаем расстояние между элементами */
+    flex-direction: column;
+    gap: 20px;
   }
 
-  /* Контент */
   .aboutContent {
-    padding-right: 0; /* Убираем правый отступ */
-    text-align: center; /* Центрируем текст */
+    padding-right: 0;
+    text-align: center;
   }
 
   .aboutContent h2 {
-    font-size: 36px; /* Уменьшаем заголовок */
+    font-size: 36px;
     margin-bottom: 15px;
+    text-align: center;
   }
 
   .aboutContent p {
-    font-size: 16px; /* Уменьшаем размер текста */
+    font-size: 16px;
     line-height: 1.5;
   }
 
-  /* Блок Aside */
   .aboutAside {
-    padding-left: 0; /* Убираем левый отступ */
-    text-align: center; /* Центрируем текст */
-    border-left: none; /* Убираем разделительную линию */
+    padding-left: 0;
+    text-align: center;
+    border-left: none;
   }
 
   .aboutAside p {
-    font-size: 16px; /* Уменьшаем текст */
+    font-size: 16px;
     line-height: 1.4;
   }
 
-  /* Декоративные элементы */
   .aboutSection::before {
-    width: 200px; /* Уменьшаем размер круга */
+    width: 200px;
     height: 200px;
     top: -50px;
     left: -50px;
   }
 
   .aboutSection::after {
-    width: 150px; /* Уменьшаем размер круга */
+    width: 150px;
     height: 150px;
     bottom: -50px;
     right: -50px;
@@ -144,8 +139,10 @@
 
 .valuesHeader h2 {
   font-size: 48px;
-  color: #1e90ff;
   margin-bottom: 10px;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .valuesSubtitle {
@@ -161,18 +158,42 @@
   flex-wrap: wrap;
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .valueItem {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.05);
   max-width: 300px;
   transition: all 0.3s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
 }
+
+.valueItem:nth-child(1) { animation-delay: 0.1s; }
+.valueItem:nth-child(2) { animation-delay: 0.3s; }
+.valueItem:nth-child(3) { animation-delay: 0.5s; }
 
 .valueItem:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.valueIcon {
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
 .valueItem h3 {
@@ -187,11 +208,11 @@
   line-height: 1.6;
 }
 
-/* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .valuesList {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
   .valueItem {
