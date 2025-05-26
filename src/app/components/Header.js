@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-// import styles from '../page.module.css';
 import styles from '../styles/Header.module.css';
 
 const phrases = [
@@ -19,7 +18,7 @@ export default function Header() {
 
   useEffect(() => {
     const currentPhrase = phrases[index % phrases.length];
-    const typingSpeed = isDeleting ? 60 : 120;
+    const typingSpeed = isDeleting ? 50 : 100;
 
     const timeout = setTimeout(() => {
       setText(
@@ -53,6 +52,9 @@ export default function Header() {
           <h1 className={styles.typewriter}>
             {text}
             <span className={styles.cursor}>|</span>
+            <span className={styles.phrasePlaceholder}>
+              {phrases.reduce((a, b) => (a.length > b.length ? a : b))}
+            </span>
           </h1>
 
           <p className={styles.subheadline}>
@@ -72,7 +74,9 @@ export default function Header() {
 
           <button
             className={styles.ctaButton}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+            }
           >
             Work with us
           </button>

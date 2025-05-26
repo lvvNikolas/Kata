@@ -117,14 +117,18 @@
 }
 
 @media (max-width: 768px) {
+  .projectList {
+    text-align: center;
+  }
+
   .projectLink {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
   }
 
   .platformIcons {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .portfolioHeader h2 {

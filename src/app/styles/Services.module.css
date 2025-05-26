@@ -2,24 +2,24 @@
 .servicesSection {
   background: linear-gradient(135deg, #141e30, #243b55);
   color: #fff;
-  padding: 100px 20px;
+  padding: 60px 12px;
   text-align: center;
 }
 
 .servicesHeader {
-  margin-bottom: 50px;
+  margin-bottom: 32px;
 }
 
 .servicesHeader h2 {
-  font-size: 64px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 12px;
   background: linear-gradient(90deg, #1e90ff, #00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .servicesSubtitle {
-  font-size: 20px;
+  font-size: 16px;
   color: #aaa;
 }
 
@@ -27,7 +27,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 24px;
 }
 
 @keyframes fadeUp {
@@ -36,64 +36,114 @@
 }
 
 .serviceItem {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  max-width: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 100%;
+  max-width: 240px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeUp 0.8s ease forwards;
+  animation: fadeUp 0.6s ease forwards;
   opacity: 0;
+  min-height: 180px;
 }
 
 .serviceItem:nth-child(1) { animation-delay: 0.1s; }
-.serviceItem:nth-child(2) { animation-delay: 0.3s; }
-.serviceItem:nth-child(3) { animation-delay: 0.5s; }
+.serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.serviceItem:nth-child(3) { animation-delay: 0.3s; }
 
 .serviceItem:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .serviceIcon {
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
   background-color: #1e90ff;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+  margin-bottom: 12px;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+  flex-shrink: 0;
 }
 
 .serviceItem h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 6px;
   color: #fff;
-  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+  text-shadow: 0 0 4px rgba(30, 144, 255, 0.4);
 }
 
 .serviceItem p {
-  font-size: 16px;
+  font-size: 13px;
   color: #ccc;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
   .servicesList {
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
   }
 
   .serviceItem {
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    max-width: 260px;
+    padding: 14px;
+    min-height: unset;
+  }
+
+  .serviceItem h3 {
+    font-size: 16px;
+  }
+
+  .serviceItem p {
+    font-size: 12px;
+  }
+
+  .serviceIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesSection {
+    padding: 40px 10px;
+  }
+
+  .servicesHeader h2 {
+    font-size: 32px;
+  }
+
+  .serviceItem {
+    padding: 12px;
+  }
+
+  .serviceItem h3 {
+    font-size: 14px;
+  }
+
+  .serviceItem p {
+    font-size: 11px;
+  }
+
+  .serviceIcon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
   }
 }
