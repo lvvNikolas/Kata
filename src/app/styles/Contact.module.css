@@ -1,7 +1,6 @@
 /* Contact Section */
-/* Contact Section */
 .contactSection {
-  background: linear-gradient(135deg, #0f172a, #1e293b); /* Градиентный фон с современными оттенками */
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #fff;
   padding: 100px 20px;
   text-align: center;
@@ -17,13 +16,15 @@
 .contactWrapper h2 {
   font-size: 48px;
   margin-bottom: 15px;
-  color: #38bdf8; /* Яркий голубой акцент */
+  color: #38bdf8;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .contactWrapper p {
   font-size: 20px;
-  color: #94a3b8; /* Светло-серый оттенок */
+  color: #94a3b8;
   margin-bottom: 40px;
 }
 
@@ -38,7 +39,7 @@
   font-size: 18px;
   color: #fff;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  background: rgba(255, 255, 255, 0.08);
   padding: 15px 20px;
   border-radius: 10px;
   width: 100%;
@@ -48,30 +49,23 @@
   align-items: center;
   gap: 10px;
   justify-content: center;
+  border: 1px solid transparent;
 }
 
 .contactItem:hover {
-  background: rgba(56, 189, 248, 0.2); /* Подсвечивание при наведении */
+  background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
+  border-color: #38bdf8;
 }
 
 .contactIcon {
   font-size: 22px;
   color: #38bdf8;
+  transition: color 0.3s ease;
 }
 
-/* Анимация появления */
-.contactSection {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s forwards ease-out;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.contactItem:hover .contactIcon {
+  color: #1e90ff;
 }
 
 /* Privacy Policy Link */
@@ -89,3 +83,16 @@
   color: #1558b3;
 }
 
+/* Fade In Animation */
+.contactSection {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards ease-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
