@@ -1,44 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Header.module.css';
 
-const phrases = [
-  'Change is happening now',
-  'Progress is shaping the future',
-  'Innovation starts with action',
-];
-
 export default function Header() {
-  const [text, setText] = useState('');
-  const [index, setIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentPhrase = phrases[index % phrases.length];
-    const typingSpeed = isDeleting ? 50 : 100;
-
-    const timeout = setTimeout(() => {
-      setText(
-        isDeleting
-          ? currentPhrase.substring(0, charIndex - 1)
-          : currentPhrase.substring(0, charIndex + 1)
-      );
-      setCharIndex(isDeleting ? charIndex - 1 : charIndex + 1);
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        setTimeout(() => setIsDeleting(true), 1500);
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setIndex((prev) => (prev + 1) % phrases.length);
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, index]);
-
   return (
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
@@ -50,11 +15,7 @@ export default function Header() {
 
         <div className={styles.headerContent}>
           <h1 className={styles.typewriter}>
-            {text}
-            <span className={styles.cursor}>|</span>
-            <span className={styles.phrasePlaceholder}>
-              {phrases.reduce((a, b) => (a.length > b.length ? a : b))}
-            </span>
+            Change is happening now
           </h1>
 
           <p className={styles.subheadline}>
