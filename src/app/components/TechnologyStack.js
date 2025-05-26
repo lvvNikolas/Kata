@@ -1,23 +1,37 @@
 'use client';
 
 import styles from '../styles/TechStack.module.css';
-import { SiReact, SiNextdotjs, SiTypescript, SiRedux, SiTailwindcss, SiNodedotjs, SiNestjs, SiGraphql, SiPostgresql, SiFlutter, SiKotlin, SiSwift } from 'react-icons/si';
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiRedux,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiNestjs,
+  SiGraphql,
+  SiPostgresql,
+  SiFlutter,
+  SiKotlin,
+  SiSwift,
+} from 'react-icons/si';
 
+// Здесь храним не JSX, а компоненты
 const techStackData = [
   {
     title: 'Frontend',
     techs: ['React', 'Next.js', 'TypeScript', 'Redux', 'Tailwind CSS'],
-    icons: [<SiReact />, <SiNextdotjs />, <SiTypescript />, <SiRedux />, <SiTailwindcss />],
+    icons: [SiReact, SiNextdotjs, SiTypescript, SiRedux, SiTailwindcss],
   },
   {
     title: 'Backend',
     techs: ['Node.js', 'NestJS', 'GraphQL', 'PostgreSQL'],
-    icons: [<SiNodedotjs />, <SiNestjs />, <SiGraphql />, <SiPostgresql />],
+    icons: [SiNodedotjs, SiNestjs, SiGraphql, SiPostgresql],
   },
   {
     title: 'Mobile',
     techs: ['Flutter', 'Swift', 'Kotlin'],
-    icons: [<SiFlutter />, <SiSwift />, <SiKotlin />],
+    icons: [SiFlutter, SiSwift, SiKotlin],
   },
 ];
 
@@ -34,16 +48,16 @@ export default function TechnologyStack() {
       <div className={styles.techStackList}>
         {techStackData.map((stack, index) => (
           <div
+            key={`stack-${stack.title}`}
             className={styles.techStackItem}
-            style={{ animationDelay: `${index * 0.2}s` }} // плавное появление с задержкой
-            key={stack.title}
+            style={{ animationDelay: `${index * 0.2}s` }}
           >
             <h3>{stack.title}</h3>
 
             <div className={styles.iconRow}>
-              {stack.icons.map((icon, i) => (
-                <span className={styles.icon} key={i}>
-                  {icon}
+              {stack.icons.map((Icon, i) => (
+                <span key={`${stack.title}-icon-${i}`} className={styles.icon}>
+                  <Icon />
                 </span>
               ))}
             </div>
@@ -55,4 +69,3 @@ export default function TechnologyStack() {
     </section>
   );
 }
-
