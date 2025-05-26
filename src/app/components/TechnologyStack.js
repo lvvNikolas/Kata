@@ -1,33 +1,58 @@
+'use client';
 
 import styles from '../styles/TechStack.module.css';
+import { SiReact, SiNextdotjs, SiTypescript, SiRedux, SiTailwindcss, SiNodedotjs, SiNestjs, SiGraphql, SiPostgresql, SiFlutter, SiKotlin, SiSwift } from 'react-icons/si';
+
+const techStackData = [
+  {
+    title: 'Frontend',
+    techs: ['React', 'Next.js', 'TypeScript', 'Redux', 'Tailwind CSS'],
+    icons: [<SiReact />, <SiNextdotjs />, <SiTypescript />, <SiRedux />, <SiTailwindcss />],
+  },
+  {
+    title: 'Backend',
+    techs: ['Node.js', 'NestJS', 'GraphQL', 'PostgreSQL'],
+    icons: [<SiNodedotjs />, <SiNestjs />, <SiGraphql />, <SiPostgresql />],
+  },
+  {
+    title: 'Mobile',
+    techs: ['Flutter', 'Swift', 'Kotlin'],
+    icons: [<SiFlutter />, <SiSwift />, <SiKotlin />],
+  },
+];
 
 export default function TechnologyStack() {
   return (
     <section id="tech-stack" className={styles.techStackSection}>
-    <div className={styles.techStackHeader}>
-      <h2>Our Tech Stack</h2>
-      <p className={styles.techStackSubtitle}>
-        We use cutting-edge technologies to build fast, secure, and scalable applications.
-      </p>
-    </div>
-    <div className={styles.techStackList}>
-      <div className={styles.techStackItem}>
-        <h3>Frontend</h3>
-        <p>React, Next.js, TypeScript, Redux, Tailwind CSS</p>
+      <div className={styles.techStackHeader}>
+        <h2>Our Tech Stack</h2>
+        <p className={styles.techStackSubtitle}>
+          We use cutting-edge technologies to build fast, secure, and scalable applications.
+        </p>
       </div>
-      <div className={styles.techStackItem}>
-        <h3>Backend</h3>
-        <p>Node.js, Express.js, NestJS, GraphQL, PostgreSQL</p>
+
+      <div className={styles.techStackList}>
+        {techStackData.map((stack, index) => (
+          <div
+            className={styles.techStackItem}
+            style={{ animationDelay: `${index * 0.2}s` }} // плавное появление с задержкой
+            key={stack.title}
+          >
+            <h3>{stack.title}</h3>
+
+            <div className={styles.iconRow}>
+              {stack.icons.map((icon, i) => (
+                <span className={styles.icon} key={i}>
+                  {icon}
+                </span>
+              ))}
+            </div>
+
+            <p>{stack.techs.join(', ')}</p>
+          </div>
+        ))}
       </div>
-      <div className={styles.techStackItem}>
-        <h3>Mobile</h3>
-        <p>React Native, Flutter, Swift, Kotlin</p>
-      </div>
-      {/* <div className={styles.techStackItem}>
-        <h3>Cloud & DevOps</h3>
-        <p>AWS, Docker, Kubernetes, Firebase, CI/CD</p>
-      </div> */}
-    </div>
-  </section>
+    </section>
   );
 }
+

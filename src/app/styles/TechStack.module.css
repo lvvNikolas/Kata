@@ -1,7 +1,6 @@
 /* Technology Stack Section */
-/* Tech Stack Section */
 .techStackSection {
-  background: linear-gradient(135deg, #141e30, #243b55); 
+  background: linear-gradient(135deg, #141e30, #243b55);
   color: #fff;
   padding: 100px 20px;
   text-align: center;
@@ -14,42 +13,88 @@
 .techStackHeader h2 {
   font-size: 64px;
   margin-bottom: 20px;
-  color: #f9f9f9;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .techStackSubtitle {
   font-size: 20px;
   color: #aaa;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .techStackList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 30px;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .techStackItem {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   padding: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
 }
 
 .techStackItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
 }
 
 .techStackItem h3 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  color: #1e90ff;
+  text-shadow: 0 0 6px rgba(30, 144, 255, 0.4);
+}
+
+.iconRow {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.icon {
+  font-size: 28px;
+  color: #bbb;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
   color: #1e90ff;
 }
 
 .techStackItem p {
   font-size: 18px;
   color: #ccc;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .techStackHeader h2 {
+    font-size: 42px;
+  }
+
+  .techStackItem {
+    padding: 20px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
 }
