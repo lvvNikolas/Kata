@@ -1,100 +1,151 @@
-/* Technology Stack Section */
-.techStackSection {
-  background: linear-gradient(135deg, #141e30, #243b55);
-  color: #fff;
-  padding: 100px 20px;
+.section {
+  background: #06091a;
+  padding: 140px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
   text-align: center;
+  margin-bottom: 72px;
 }
 
-.techStackHeader {
-  margin-bottom: 50px;
+.label {
+  display: inline-block;
+  color: #6366f1;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
 }
 
-.techStackHeader h2 {
-  font-size: 64px;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+.title {
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.accent {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.techStackSubtitle {
-  font-size: 20px;
-  color: #aaa;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.techStackList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.techStackItem {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeUp 0.8s ease forwards;
-  opacity: 0;
-}
-
-.techStackItem:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
-}
-
-.techStackItem h3 {
-  font-size: 24px;
-  margin-bottom: 16px;
-  color: #1e90ff;
-  text-shadow: 0 0 6px rgba(30, 144, 255, 0.4);
-}
-
-.iconRow {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.icon {
-  font-size: 28px;
-  color: #bbb;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.icon:hover {
-  transform: scale(1.2);
-  color: #1e90ff;
-}
-
-.techStackItem p {
+.subtitle {
   font-size: 18px;
-  color: #ccc;
+  color: #64748b;
+  max-width: 540px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-  .techStackHeader h2 {
-    font-size: 42px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 36px 32px;
+  transition: all 0.35s ease;
+  width: 100%;
+}
+
+.card:hover {
+  background: rgba(99, 102, 241, 0.04);
+  border-color: rgba(99, 102, 241, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+  margin-bottom: 32px;
+}
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: #475569;
+  margin: 0;
+  font-weight: 500;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.iconItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--tech-color, #94a3b8);
+  transition: all 0.3s ease;
+}
+
+.iconItem:hover .iconCircle {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.iconName {
+  font-size: 11px;
+  color: #334155;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 96px 20px;
   }
 
-  .techStackItem {
-    padding: 20px;
+  .grid {
+    grid-template-columns: 1fr;
   }
 
-  .icon {
-    font-size: 24px;
+  .title {
+    letter-spacing: -0.5px;
   }
 }

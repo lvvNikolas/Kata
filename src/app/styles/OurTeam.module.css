@@ -1,163 +1,163 @@
-.teamSection {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
-  padding: 80px 20px;
-  text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.section {
+  background: #030712;
+  padding: 140px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.teamWrapper {
-  max-width: 900px;
+.container {
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.teamWrapper h2 {
-  font-size: 42px;
-  color: #38bdf8;
-  font-weight: bold;
-  margin-bottom: 20px;
+.header {
+  text-align: center;
+  margin-bottom: 72px;
 }
 
-.teamWrapper p {
+.label {
+  display: inline-block;
+  color: #6366f1;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.accent {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
   font-size: 18px;
-  color: #94a3b8;
-  margin-bottom: 40px;
+  color: #64748b;
+  margin: 0;
 }
 
-.teamGrid {
+/* Grid layout */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  grid-template-rows: auto auto;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
 }
 
-/* CEO занимает всю первую строку */
-.teamMember.ceo {
-  grid-column: 1 / -1;
-}
-
-/* Фото CEO больше */
-.ceoPhoto {
-  width: 180px;
-  height: 180px;
-  border: 4px solid #38bdf8;
-}
-
-/* Обычные фото */
-.teamPhoto {
-  width: 100px;
-  height: 100px;
-  border: 3px solid #38bdf8;
-}
-
-.teamPhoto,
-.ceoPhoto {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.teamMember {
+.member {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-}
-
-.teamMember h3 {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 5px;
-}
-
-.teamMember p {
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-/* Анимация появления */
-.teamSection {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s forwards ease-out;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ======== Адаптивные стили ======== */
-
-/* Малые экраны (планшеты и мобильные) */
-@media (max-width: 768px) {
-  .teamGrid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .teamMember.ceo {
-    grid-column: unset;
-  }
-
-  /* Уменьшаем CEO фото на мобильных */
-  .ceoPhoto {
-    width: 140px;
-    height: 140px;
-  }
-
-  /* Уменьшаем обычные фото */
-  .teamPhoto {
-    width: 80px;
-    height: 80px;
-  }
-
-  /* Уменьшаем заголовки */
-  .teamWrapper h2 {
-    font-size: 32px;
-  }
-
-  .teamWrapper p {
-    font-size: 16px;
-  }
-}
-
-/* Очень маленькие экраны (телефоны) */
-@media (max-width: 480px) {
-  .ceoPhoto {
-    width: 120px;
-    height: 120px;
-  }
-
-  .teamPhoto {
-    width: 70px;
-    height: 70px;
-  }
-
-  .teamWrapper h2 {
-    font-size: 28px;
-  }
-
-  .teamWrapper p {
-    font-size: 14px;
-  }
-}
-
-/* Запрет выделения и перетаскивания */
-.teamMember {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
 }
 
-.teamPhoto,
-.ceoPhoto {
-  pointer-events: none; /* Запрещает взаимодействие (включая drag) */
+/* CEO spans full row and gets special treatment */
+.ceo {
+  grid-column: 1 / -1;
+}
+
+.photoWrap {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.member:hover .photoWrap {
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+.ceoPhotoWrap {
+  width: 140px;
+  height: 140px;
+  border: 3px solid #6366f1;
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+  margin-bottom: 18px;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+.memberName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.ceo .memberName {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.memberRole {
+  font-size: 12px;
+  color: #475569;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.ceoRole {
+  font-size: 14px;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .ceoPhotoWrap {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 96px 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .title {
+    letter-spacing: -0.5px;
+  }
+
+  .ceoPhotoWrap {
+    width: 110px;
+    height: 110px;
+  }
 }

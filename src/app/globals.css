@@ -1,39 +1,42 @@
-/* src/app/globals.css */
-body {
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  padding: 0;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-around;
-  background-color: #0070f3;
-  padding: 1rem;
+html {
+  scroll-behavior: smooth;
 }
 
-.nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #030712;
+  color: #f8fafc;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.nav a:hover {
-  text-decoration: underline;
-}
-
-.main-content {
-  padding: 2rem;
-  min-height: 80vh;
+/* Grain / noise texture overlay — adds premium depth */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }
 
 /* Footer */
 .footer {
-  background-color: #000; /* Черный фон */
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  background: #030712;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #475569;
+  padding: 40px 48px;
   font-size: 14px;
 }
 
@@ -52,46 +55,67 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.footerLeft p,
+.footerRight p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footerLogo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.5px;
+}
+
+.footerDot {
+  color: #6366f1;
 }
 
 .footerLink {
-  color: #aaa;
+  color: #475569;
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: color 0.25s ease;
 }
 
 .footerLink:hover {
-  color: #1e90ff; /* Синий при наведении */
+  color: #6366f1;
 }
 
-.footerSocials {
+.footerAddress {
   display: flex;
-  gap: 15px;
-}
-
-.socialIcon img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.socialIcon:hover img {
-  transform: scale(1.2); /* Увеличение иконки при наведении */
-  opacity: 0.8; /* Легкое затемнение */
+  align-items: center;
+  gap: 6px;
+  color: #475569;
 }
 
 @media (min-width: 768px) {
   .footerContainer {
     flex-direction: row;
-    justify-content: space-between;
   }
 
-  .footerLeft,
+  .footerLeft {
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+  }
+
   .footerRight {
     flex-direction: row;
+    gap: 24px;
     align-items: center;
-    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 24px;
   }
 }

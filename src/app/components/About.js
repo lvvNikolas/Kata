@@ -1,50 +1,67 @@
-// import styles from '../page.module.css';
+import Reveal from './Reveal';
 import styles from '../styles/About.module.css';
+
+const values = [
+  {
+    icon: '🎯',
+    title: 'Quality First',
+    text: 'We deliver only the best solutions that exceed expectations every time.',
+  },
+  {
+    icon: '⚡',
+    title: 'Innovation',
+    text: 'We embrace cutting-edge technologies to stay ahead of the curve.',
+  },
+  {
+    icon: '🤝',
+    title: 'Transparency',
+    text: 'Honesty and openness are the foundation of every relationship we build.',
+  },
+];
 
 export default function About() {
   return (
-    <>
-      <section className={styles.aboutSection}>
-        <div className={styles.aboutWrapper}>
-          <div className={styles.aboutContent}>
-            <h2>About</h2>
-            <p>
-              We strive to push the boundaries of innovation, crafting solutions that inspire and empower.
-              Our mission is to create a world where possibilities are limitless, and challenges are just
-              opportunities in disguise. Together, we redefine excellence.
-            </p>
-          </div>
-          <div className={styles.aboutAside}>
-            <p>Mediocrity does not stand a chance with us</p>
-          </div>
-        </div>
-      </section>
+    <section id="about" className={styles.section}>
+      <div className={styles.container}>
+        <Reveal>
+          <div className={styles.topGrid}>
+            <div className={styles.textBlock}>
+              <span className={styles.label}>Who We Are</span>
+              <h2 className={styles.title}>
+                Crafting the future,<br />
+                <span className={styles.accent}>one line at a time</span>
+              </h2>
+              <p className={styles.body}>
+                We strive to push the boundaries of innovation, crafting solutions
+                that inspire and empower. Our mission is to create a world where
+                possibilities are limitless, and challenges are just opportunities
+                in disguise. Together, we redefine excellence.
+              </p>
+            </div>
 
-      {/* Новая секция "Our Values" */}
-      <section className={styles.valuesSection}>
-        <div className={styles.valuesHeader}>
-          <h2>Our Values</h2>
-          <p className={styles.valuesSubtitle}>What drives us forward</p>
-        </div>
+            <div className={styles.quoteBlock}>
+              <div className={styles.quoteInner}>
+                <div className={styles.quoteIcon}>&ldquo;</div>
+                <p className={styles.quoteText}>
+                  Mediocrity does not stand a chance with us.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
 
-        <div className={styles.valuesList}>
-          <div className={styles.valueItem}>
-            <div className={styles.valueIcon}>🎯</div>
-            <h3>Quality</h3>
-            <p>We deliver only the best solutions that exceed expectations.</p>
-          </div>
-          <div className={styles.valueItem}>
-            <div className={styles.valueIcon}>⚡</div>
-            <h3>Innovation</h3>
-            <p>We embrace new technologies and methodologies to stay ahead.</p>
-          </div>
-          <div className={styles.valueItem}>
-            <div className={styles.valueIcon}>🤝</div>
-            <h3>Transparency</h3>
-            <p>Honesty and openness are the foundation of our relationships.</p>
-          </div>
+        <div className={styles.valuesGrid}>
+          {values.map((v, i) => (
+            <Reveal key={v.title} delay={i * 0.15} style={{ display: 'flex' }}>
+              <div className={styles.valueCard}>
+                <span className={styles.valueIcon}>{v.icon}</span>
+                <h3 className={styles.valueTitle}>{v.title}</h3>
+                <p className={styles.valueText}>{v.text}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

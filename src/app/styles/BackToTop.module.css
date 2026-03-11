@@ -1,0 +1,47 @@
+.btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 500;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: rgba(99, 102, 241, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.25s ease, background 0.25s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn:hover {
+  background: #6366f1;
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.45);
+  transform: translateY(-3px) !important;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 600px) {
+  .btn {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+  }
+}
