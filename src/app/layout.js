@@ -12,8 +12,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Kata',
-  url: 'https://katatech.dev',
-  logo: 'https://katatech.dev/images/Nikolas.PNG',
+  url: 'https://kata-es4q.vercel.app',
+  logo: 'https://kata-es4q.vercel.app/images/Nikolas.PNG',
   description: 'Expert Mobile Application Development Studio. We build next-generation iOS and Android apps.',
   address: {
     '@type': 'PostalAddress',
@@ -55,7 +55,10 @@ export default function Layout({ children }) {
         />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Kata" />
-        <meta property="og:url" content="https://katatech.dev" />
+        <meta property="og:url" content="https://kata-es4q.vercel.app" />
+        <meta property="og:image" content="https://kata-es4q.vercel.app/images/Nikolas.PNG" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
         {/* Twitter / X */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -65,13 +68,19 @@ export default function Layout({ children }) {
           content="We build next-generation iOS and Android apps. 1M+ active users, 7+ years of expertise."
         />
 
-        {/* Canonical */}
-        <link rel="canonical" href="https://katatech.dev" />
+        {/* Google Site Verification — получи код в Google Search Console или Google Play Console */}
+        {/* Раскомментируй и вставь свой код после регистрации: */}
+        {/* <meta name="google-site-verification" content="ВСТАВЬ_КОД_СЮДА" /> */}
 
-        {/* Favicon */}
+        {/* Canonical */}
+        <link rel="canonical" href="https://kata-es4q.vercel.app" />
+
+        {/* Favicon & Manifest */}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#6366f1" />
 
         {/* JSON-LD structured data */}
         <script
@@ -130,9 +139,9 @@ export default function Layout({ children }) {
               <Link href="/privacy-policy" className="footerLink">
                 Privacy Policy
               </Link>
-              <a href="#" className="footerLink">
+              <Link href="/terms-of-use" className="footerLink">
                 Terms of Use
-              </a>
+              </Link>
             </div>
           </div>
         </footer>
