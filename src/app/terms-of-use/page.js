@@ -34,7 +34,7 @@ export default function TermsOfUse() {
           <li style={styles.listItem}>Attempt to gain unauthorized access to any part of the Service or its infrastructure.</li>
           <li style={styles.listItem}>Transmit any unsolicited or unauthorized advertising or promotional material.</li>
           <li style={styles.listItem}>Reproduce, duplicate, copy, sell, or exploit any portion of the Service without our express written permission.</li>
-          <li style={styles.listItem}>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Service.</li>
+          <li style={styles.listItem}>Engage in any conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Service.</li>
         </ul>
       </Section>
 
@@ -58,7 +58,7 @@ export default function TermsOfUse() {
 
       <Section title="5. Disclaimer of Warranties">
         <p style={styles.text}>
-          The Service is provided on an "as is" and "as available" basis without warranties of
+          The Service is provided on an &quot;as is&quot; and &quot;as available&quot; basis without warranties of
           any kind, either express or implied, including but not limited to implied warranties
           of merchantability, fitness for a particular purpose, or non-infringement. We do not
           warrant that the Service will be uninterrupted, error-free, or free of viruses or
@@ -103,7 +103,7 @@ export default function TermsOfUse() {
       <Section title="10. Changes to Terms">
         <p style={styles.text}>
           We reserve the right to modify these Terms at any time. We will notify users of
-          significant changes by updating the "Effective Date" above. Your continued use of the
+          significant changes by updating the &quot;Effective Date&quot; above. Your continued use of the
           Service after any changes constitutes your acceptance of the new Terms.
         </p>
       </Section>
