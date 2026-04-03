@@ -11,6 +11,7 @@ const navItems = [
   ['portfolio', 'Portfolio'],
   ['tech-stack', 'Tech Stack'],
   ['team', 'Team'],
+  ['faq', 'FAQ'],
   ['contact', 'Contact'],
 ];
 

@@ -1,18 +1,20 @@
 'use client';
 
+import Image from 'next/image';
+import { FaLinkedinIn } from 'react-icons/fa';
 import Reveal from './Reveal';
 import styles from '../styles/OurTeam.module.css';
 
 const teamMembers = [
-  { name: 'Nikolas Orlovsky', role: 'CEO & Founder', img: '/images/Nikolas.PNG', ceo: true },
-  { name: 'Bob Smith', role: 'Product Manager', img: '/images/face1.jpg' },
-  { name: 'Charlie Brown', role: 'Team Lead', img: '/images/face2.jpg' },
-  { name: 'Diana Lee', role: 'UI/UX Designer', img: '/images/face3.jpg' },
-  { name: 'Aarav Sharma', role: 'QA Engineer', img: '/images/face4.jpg' },
-  { name: 'Vihaan Patel', role: 'Front-End Engineer', img: '/images/face5.jpg' },
-  { name: 'Xavier Thompson', role: 'Front-End Engineer', img: '/images/face6.jpg' },
-  { name: 'Michael Zhang', role: 'Back-End Engineer', img: '/images/face7.jpg' },
-  { name: 'Farhan Siddiqui', role: 'Back-End Engineer', img: '/images/face8.jpg' },
+  { name: 'Nikolas Orlovsky', role: 'CEO & Founder', img: '/images/Nikolas.PNG', ceo: true, linkedin: 'https://linkedin.com/in/nikolasorlovsky' },
+  { name: 'Bob Smith', role: 'Product Manager', img: '/images/face1.jpg', linkedin: '#' },
+  { name: 'Charlie Brown', role: 'Team Lead', img: '/images/face2.jpg', linkedin: '#' },
+  { name: 'Diana Lee', role: 'UI/UX Designer', img: '/images/face3.jpg', linkedin: '#' },
+  { name: 'Aarav Sharma', role: 'QA Engineer', img: '/images/face4.jpg', linkedin: '#' },
+  { name: 'Vihaan Patel', role: 'Front-End Engineer', img: '/images/face5.jpg', linkedin: '#' },
+  { name: 'Xavier Thompson', role: 'Front-End Engineer', img: '/images/face6.jpg', linkedin: '#' },
+  { name: 'Michael Zhang', role: 'Back-End Engineer', img: '/images/face7.jpg', linkedin: '#' },
+  { name: 'Farhan Siddiqui', role: 'Back-End Engineer', img: '/images/face8.jpg', linkedin: '#' },
 ];
 
 export default function OurTeam() {
@@ -38,7 +40,7 @@ export default function OurTeam() {
         <div className={styles.grid}>
           {teamMembers.map((member, i) => (
             <Reveal
-              key={i}
+              key={member.name}
               delay={i * 0.07}
               style={{ display: 'flex', justifyContent: 'center' }}
             >
@@ -47,9 +49,11 @@ export default function OurTeam() {
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <div className={`${styles.photoWrap} ${member.ceo ? styles.ceoPhotoWrap : ''}`}>
-                  <img
+                  <Image
                     src={member.img}
                     alt={member.name}
+                    width={member.ceo ? 140 : 86}
+                    height={member.ceo ? 140 : 86}
                     draggable={false}
                     onContextMenu={(e) => e.preventDefault()}
                     className={styles.photo}
@@ -59,6 +63,16 @@ export default function OurTeam() {
                 <p className={`${styles.memberRole} ${member.ceo ? styles.ceoRole : ''}`}>
                   {member.role}
                 </p>
+                <a
+                  href={member.linkedin}
+                  className={styles.linkedinBtn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name} on LinkedIn`}
+                  onClick={(e) => member.linkedin === '#' && e.preventDefault()}
+                >
+                  <FaLinkedinIn />
+                </a>
               </div>
             </Reveal>
           ))}

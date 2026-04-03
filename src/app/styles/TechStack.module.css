@@ -1,12 +1,14 @@
 .section {
   background: #06091a;
-  padding: 140px 24px;
+  padding: 140px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
 .header {
@@ -48,104 +50,127 @@
   line-height: 1.6;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+/* ─── Marquee ─── */
+.marqueeOuter {
+  position: relative;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
-  padding: 36px 32px;
-  transition: all 0.35s ease;
-  width: 100%;
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.card:hover {
-  background: rgba(99, 102, 241, 0.04);
-  border-color: rgba(99, 102, 241, 0.18);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(90deg, #06091a 0%, transparent 100%);
 }
 
-.cardHeader {
-  margin-bottom: 32px;
+.fadeRight {
+  right: 0;
+  background: linear-gradient(-90deg, #06091a 0%, transparent 100%);
 }
 
-.cardTitle {
-  font-size: 22px;
-  font-weight: 700;
-  color: #e2e8f0;
-  margin-bottom: 6px;
-}
-
-.cardDesc {
-  font-size: 14px;
-  color: #475569;
-  margin: 0;
-  font-weight: 500;
-}
-
-.icons {
+.marqueeTrack {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+  gap: 20px;
+  animation: techScroll 32s linear infinite;
+  will-change: transform;
+  padding: 8px 0 24px;
 }
 
-.iconItem {
+.marqueeOuter:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes techScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Individual tech item */
+.techItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 88px;
+  cursor: default;
 }
 
-.iconCircle {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+.techCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 26px;
   color: var(--tech-color, #94a3b8);
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.iconItem:hover .iconCircle {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.techItem:hover .techCircle {
+  background: color-mix(in srgb, var(--tech-color) 12%, transparent);
+  border-color: color-mix(in srgb, var(--tech-color) 40%, transparent);
+  transform: translateY(-6px) scale(1.08);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px color-mix(in srgb, var(--tech-color) 20%, transparent);
 }
 
-.iconName {
+.techName {
   font-size: 11px;
-  color: #334155;
-  font-weight: 600;
+  font-weight: 700;
+  color: #94a3b8;
   letter-spacing: 0.3px;
   text-align: center;
+  transition: color 0.3s ease;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.techItem:hover .techName {
+  color: #e2e8f0;
+}
+
+.techCategory {
+  font-size: 9px;
+  color: #334155;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.techItem:hover .techCategory {
+  color: #475569;
 }
 
 @media (max-width: 600px) {
   .section {
-    padding: 96px 20px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
+    padding: 96px 0;
   }
 
   .title {
     letter-spacing: -0.5px;
+  }
+
+  .techCircle {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .fadeLeft,
+  .fadeRight {
+    width: 60px;
   }
 }

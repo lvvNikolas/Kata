@@ -100,6 +100,11 @@
   object-fit: cover;
   pointer-events: none;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.member:hover .photo {
+  transform: scale(1.08);
 }
 
 .memberName {
@@ -127,6 +132,39 @@
   font-size: 14px;
   color: #6366f1;
   font-weight: 600;
+}
+
+.linkedinBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #475569;
+  font-size: 13px;
+  margin-top: 10px;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateY(4px);
+  text-decoration: none;
+}
+
+.member:hover .linkedinBtn {
+  opacity: 1;
+  transform: translateY(0);
+  color: #a5b4fc;
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.linkedinBtn:hover {
+  background: rgba(99, 102, 241, 0.2) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
 }
 
 /* Responsive */

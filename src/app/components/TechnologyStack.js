@@ -17,38 +17,23 @@ import {
   SiSwift,
 } from 'react-icons/si';
 
-const techStackData = [
-  {
-    title: 'Frontend',
-    description: 'Modern, reactive interfaces',
-    techs: [
-      { name: 'React', Icon: SiReact, color: '#61dafb' },
-      { name: 'Next.js', Icon: SiNextdotjs, color: '#e2e8f0' },
-      { name: 'TypeScript', Icon: SiTypescript, color: '#3178c6' },
-      { name: 'Redux', Icon: SiRedux, color: '#764abc' },
-      { name: 'Tailwind', Icon: SiTailwindcss, color: '#38bdf8' },
-    ],
-  },
-  {
-    title: 'Backend',
-    description: 'Scalable, secure APIs',
-    techs: [
-      { name: 'Node.js', Icon: SiNodedotjs, color: '#68a063' },
-      { name: 'NestJS', Icon: SiNestjs, color: '#e0234e' },
-      { name: 'GraphQL', Icon: SiGraphql, color: '#e10098' },
-      { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791' },
-    ],
-  },
-  {
-    title: 'Mobile',
-    description: 'Cross-platform excellence',
-    techs: [
-      { name: 'Flutter', Icon: SiFlutter, color: '#54c5f8' },
-      { name: 'Swift', Icon: SiSwift, color: '#f05138' },
-      { name: 'Kotlin', Icon: SiKotlin, color: '#7f52ff' },
-    ],
-  },
+const allTechs = [
+  { name: 'React', Icon: SiReact, color: '#61dafb', category: 'Frontend' },
+  { name: 'Next.js', Icon: SiNextdotjs, color: '#e2e8f0', category: 'Frontend' },
+  { name: 'TypeScript', Icon: SiTypescript, color: '#3178c6', category: 'Frontend' },
+  { name: 'Redux', Icon: SiRedux, color: '#764abc', category: 'Frontend' },
+  { name: 'Tailwind', Icon: SiTailwindcss, color: '#38bdf8', category: 'Frontend' },
+  { name: 'Node.js', Icon: SiNodedotjs, color: '#68a063', category: 'Backend' },
+  { name: 'NestJS', Icon: SiNestjs, color: '#e0234e', category: 'Backend' },
+  { name: 'GraphQL', Icon: SiGraphql, color: '#e10098', category: 'Backend' },
+  { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791', category: 'Backend' },
+  { name: 'Flutter', Icon: SiFlutter, color: '#54c5f8', category: 'Mobile' },
+  { name: 'Swift', Icon: SiSwift, color: '#f05138', category: 'Mobile' },
+  { name: 'Kotlin', Icon: SiKotlin, color: '#7f52ff', category: 'Mobile' },
 ];
+
+// Duplicate for seamless infinite loop
+const marqueeItems = [...allTechs, ...allTechs];
 
 export default function TechnologyStack() {
   return (
@@ -65,31 +50,28 @@ export default function TechnologyStack() {
             </p>
           </div>
         </Reveal>
+      </div>
 
-        <div className={styles.grid}>
-          {techStackData.map((stack, i) => (
-            <Reveal key={stack.title} delay={i * 0.15} style={{ display: 'flex' }}>
-              <div className={styles.card}>
-                <div className={styles.cardHeader}>
-                  <h3 className={styles.cardTitle}>{stack.title}</h3>
-                  <p className={styles.cardDesc}>{stack.description}</p>
-                </div>
-
-                <div className={styles.icons}>
-                  {stack.techs.map(({ name, Icon, color }) => (
-                    <div key={name} className={styles.iconItem}>
-                      <div
-                        className={styles.iconCircle}
-                        style={{ '--tech-color': color }}
-                      >
-                        <Icon />
-                      </div>
-                      <span className={styles.iconName}>{name}</span>
-                    </div>
-                  ))}
-                </div>
+      {/* Full-width marquee */}
+      <div className={styles.marqueeOuter}>
+        <div className={styles.fadeLeft} />
+        <div className={styles.fadeRight} />
+        <div className={styles.marqueeTrack}>
+          {marqueeItems.map(({ name, Icon, color, category }, i) => (
+            <div
+              key={`${name}-${i}`}
+              className={styles.techItem}
+              data-category={category}
+            >
+              <div
+                className={styles.techCircle}
+                style={{ '--tech-color': color }}
+              >
+                <Icon />
               </div>
-            </Reveal>
+              <span className={styles.techName}>{name}</span>
+              <span className={styles.techCategory}>{category}</span>
+            </div>
           ))}
         </div>
       </div>

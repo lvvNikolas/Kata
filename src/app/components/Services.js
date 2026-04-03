@@ -58,6 +58,7 @@ function ServiceCard({ service, delay }) {
       <div
         ref={cardRef}
         className={styles.card}
+        style={{ '--card-color': color }}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
       >

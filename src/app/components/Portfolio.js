@@ -7,13 +7,75 @@ import Reveal from './Reveal';
 import styles from '../styles/Portfolio.module.css';
 
 const projects = [
-  { name: 'Lungs Test Exercise', category: 'Health & Fitness' },
-  { name: 'Engineering IQ Test', category: 'Education' },
-  { name: 'Math Game', category: 'Education' },
-  { name: 'Six Pack in 30 Days', category: 'Health & Fitness' },
-  { name: 'Push Ups — Fitness Trainer', category: 'Health & Fitness' },
-  { name: 'Legs Workout — 4 Week Program', category: 'Health & Fitness' },
-  { name: '10+ Android Utility Apps', category: 'Utilities' },
+  {
+    name: 'Lungs Test Exercise',
+    category: 'Health & Fitness',
+    description: 'Breathing exercises with advanced lung capacity tracking and guided training programs.',
+    gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+    icon: '🫁',
+    platforms: ['ios', 'android'],
+    appStore: 'https://apps.apple.com/us/search?term=lungs+test+exercise',
+    playStore: 'https://play.google.com/store/search?q=lungs+test+exercise&c=apps',
+  },
+  {
+    name: 'Engineering IQ Test',
+    category: 'Education',
+    description: 'Adaptive IQ assessment designed specifically for engineering disciplines and professionals.',
+    gradient: 'linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%)',
+    icon: '🧠',
+    platforms: ['ios', 'android'],
+    appStore: 'https://apps.apple.com/us/search?term=engineering+iq+test',
+    playStore: 'https://play.google.com/store/search?q=engineering+iq+test&c=apps',
+  },
+  {
+    name: 'Math Game',
+    category: 'Education',
+    description: 'Gamified mathematics learning platform making math fun for all ages and skill levels.',
+    gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
+    icon: '🔢',
+    platforms: ['ios', 'android'],
+    appStore: 'https://apps.apple.com/us/search?term=math+game+kata',
+    playStore: 'https://play.google.com/store/search?q=math+game+kata&c=apps',
+  },
+  {
+    name: 'Six Pack in 30 Days',
+    category: 'Health & Fitness',
+    description: 'Structured 30-day core workout program with daily progress tracking and expert tips.',
+    gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+    icon: '💪',
+    platforms: ['ios', 'android'],
+    appStore: 'https://apps.apple.com/us/search?term=six+pack+30+days',
+    playStore: 'https://play.google.com/store/search?q=six+pack+30+days&c=apps',
+  },
+  {
+    name: 'Push Ups — Fitness Trainer',
+    category: 'Health & Fitness',
+    description: 'Personalized push-up training with form guidance and performance analytics.',
+    gradient: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+    icon: '🏋️',
+    platforms: ['ios', 'android'],
+    appStore: 'https://apps.apple.com/us/search?term=push+ups+fitness+trainer',
+    playStore: 'https://play.google.com/store/search?q=push+ups+fitness+trainer&c=apps',
+  },
+  {
+    name: 'Legs Workout — 4 Week',
+    category: 'Health & Fitness',
+    description: '4-week progressive leg training with video instructions and smart scheduling.',
+    gradient: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)',
+    icon: '🦵',
+    platforms: ['ios', 'android'],
+    appStore: 'https://apps.apple.com/us/search?term=legs+workout+4+week',
+    playStore: 'https://play.google.com/store/search?q=legs+workout+4+week&c=apps',
+  },
+  {
+    name: '10+ Android Utility Apps',
+    category: 'Utilities',
+    description: 'Suite of productivity tools and utilities optimized for the Android ecosystem.',
+    gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+    icon: '⚙️',
+    platforms: ['android'],
+    playStore: 'https://play.google.com/store/search?q=kata+utility+apps&c=apps',
+  },
 ];
 
 const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
@@ -39,7 +101,6 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-        {/* Category filter */}
         <Reveal delay={0.1}>
           <div className={styles.filters}>
             {categories.map((cat) => (
@@ -54,37 +115,39 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-        <div className={styles.list}>
+        <div className={styles.grid}>
           {filtered.map((project, i) => (
-            <Reveal key={project.name} delay={i * 0.07} as="div">
-              <div className={styles.item}>
-                <div className={styles.itemLeft}>
-                  <span className={styles.itemNumber}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div className={styles.itemInfo}>
-                    <h3 className={styles.itemName}>{project.name}</h3>
-                    <span className={styles.itemCategory}>{project.category}</span>
-                  </div>
+            <Reveal key={project.name} delay={i * 0.07}>
+              <div className={styles.card}>
+                <div className={styles.cardTop} style={{ background: project.gradient }}>
+                  <span className={styles.cardIcon}>{project.icon}</span>
+                  <span className={styles.categoryBadge}>{project.category}</span>
                 </div>
-                <div className={styles.itemRight}>
-                  <div className={styles.platforms}>
-                    <FaAndroid className={styles.platformIcon} />
-                    <FaApple className={styles.platformIcon} />
+                <div className={styles.cardBody}>
+                  <h3 className={styles.cardName}>{project.name}</h3>
+                  <p className={styles.cardDesc}>{project.description}</p>
+                  <div className={styles.cardFooter}>
+                    <div className={styles.platforms}>
+                      {project.platforms.includes('android') && (
+                        <FaAndroid className={styles.platformIcon} />
+                      )}
+                      {project.platforms.includes('ios') && (
+                        <FaApple className={styles.platformIcon} />
+                      )}
+                    </div>
+                    <div className={styles.storeLinks}>
+                      {project.appStore && (
+                        <a href={project.appStore} target="_blank" rel="noopener noreferrer" className={styles.storeBtn}>
+                          <FaApple /> App Store
+                        </a>
+                      )}
+                      {project.playStore && (
+                        <a href={project.playStore} target="_blank" rel="noopener noreferrer" className={styles.storeBtn}>
+                          <FaAndroid /> Play
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <svg
-                    className={styles.arrow}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7v10"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                 </div>
               </div>
             </Reveal>

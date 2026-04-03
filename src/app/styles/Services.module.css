@@ -69,8 +69,26 @@
   will-change: transform;
 }
 
+/* Top glow strip on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--card-color, #6366f1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
 .card:hover {
-  border-color: rgba(99, 102, 241, 0.22);
+  border-color: color-mix(in srgb, var(--card-color, #6366f1) 30%, transparent);
+  box-shadow: 0 0 40px -10px color-mix(in srgb, var(--card-color, #6366f1) 25%, transparent);
 }
 
 .iconWrap {

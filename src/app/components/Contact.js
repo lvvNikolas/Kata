@@ -3,7 +3,14 @@
 import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaTelegramPlane } from 'react-icons/fa';
 import Reveal from './Reveal';
+import { fireConfetti } from '../utils/confetti';
 import styles from '../styles/Contact.module.css';
+
+// To enable real email delivery:
+// 1. Sign up at https://formspree.io
+// 2. Create a form and copy your form ID
+// 3. Replace 'YOUR_FORM_ID' below with your actual ID
+const FORMSPREE_ID = 'YOUR_FORM_ID';
 
 const contacts = [
   {
@@ -22,24 +29,48 @@ const contacts = [
     Icon: FaTelegramPlane,
     label: 'Telegram',
     value: 'Message us on Telegram',
-    href: '#',
+    href: 'https://t.me/katatech',
   },
 ];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sent
+  const [status, setStatus] = useState('idle'); // idle | loading | sent | error
 
   const onChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
-    const mailtoUrl = `mailto:lvvkatatech@gmail.com?subject=Inquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoUrl);
-    setStatus('sent');
-    setForm({ name: '', email: '', message: '' });
+
+    // If Formspree is not configured, fall back to mailto
+    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+      const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
+      const mailtoUrl = `mailto:lvvkatatech@gmail.com?subject=Inquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(body)}`;
+      window.open(mailtoUrl);
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+      fireConfetti();
+      return;
+    }
+
+    setStatus('loading');
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      });
+      if (res.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+        fireConfetti();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -63,7 +94,7 @@ export default function Contact() {
           <Reveal delay={0.1}>
             <div className={styles.cards}>
               {contacts.map(({ Icon, label, value, href }) => (
-                <a key={label} href={href} className={styles.card}>
+                <a key={label} href={href} className={styles.card} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
                   <div className={styles.iconWrap}>
                     <Icon />
                   </div>
@@ -77,6 +108,7 @@ export default function Contact() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
+                    aria-hidden="true"
                   >
                     <path
                       d="M7 17L17 7M17 7H7M17 7v10"
@@ -96,8 +128,7 @@ export default function Contact() {
                 <div className={styles.successIcon}>✓</div>
                 <h3 className={styles.successTitle}>Message sent!</h3>
                 <p className={styles.successText}>
-                  Your email client opened with a pre-filled message.
-                  We&apos;ll get back to you shortly.
+                  Thanks for reaching out. We&apos;ll get back to you shortly.
                 </p>
                 <button
                   className={styles.resetBtn}
@@ -121,6 +152,7 @@ export default function Contact() {
                     className={styles.formInput}
                     value={form.name}
                     onChange={onChange}
+                    disabled={status === 'loading'}
                   />
                 </div>
 
@@ -137,6 +169,7 @@ export default function Contact() {
                     className={styles.formInput}
                     value={form.email}
                     onChange={onChange}
+                    disabled={status === 'loading'}
                   />
                 </div>
 
@@ -153,24 +186,45 @@ export default function Contact() {
                     rows={5}
                     value={form.message}
                     onChange={onChange}
+                    disabled={status === 'loading'}
                   />
                 </div>
 
-                <button type="submit" className={styles.submitBtn}>
-                  Send Message
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    className={styles.submitIcon}
-                  >
-                    <path
-                      d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                {status === 'error' && (
+                  <p className={styles.errorMsg}>
+                    Something went wrong. Please email us directly at lvvkatatech@gmail.com
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className={styles.submitBtn}
+                  disabled={status === 'loading'}
+                >
+                  {status === 'loading' ? (
+                    <>
+                      <span className={styles.spinner} />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        className={styles.submitIcon}
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </>
+                  )}
                 </button>
               </form>
             )}

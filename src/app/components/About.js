@@ -1,5 +1,15 @@
+'use client';
+
 import Reveal from './Reveal';
+import Counter from './Counter';
 import styles from '../styles/About.module.css';
+
+const metrics = [
+  { end: 50, suffix: '+', label: 'Projects Shipped' },
+  { end: 1, suffix: 'M+', label: 'Users Reached' },
+  { end: 4.9, suffix: '★', label: 'App Store Rating', decimals: 1 },
+  { end: 7, suffix: '+', label: 'Years of Craft' },
+];
 
 const values = [
   {
@@ -47,6 +57,20 @@ export default function About() {
                 </p>
               </div>
             </div>
+          </div>
+        </Reveal>
+
+        {/* Animated metrics row */}
+        <Reveal delay={0.1}>
+          <div className={styles.metricsRow}>
+            {metrics.map((m) => (
+              <div key={m.label} className={styles.metricItem}>
+                <span className={styles.metricNum}>
+                  <Counter end={m.end} suffix={m.suffix} decimals={m.decimals ?? 0} />
+                </span>
+                <span className={styles.metricLabel}>{m.label}</span>
+              </div>
+            ))}
           </div>
         </Reveal>
 
