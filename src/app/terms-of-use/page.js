@@ -1,24 +1,57 @@
+// ============================================================
+// terms-of-use/page.js — Страница условий использования
+// ============================================================
+// Эта страница ОБЯЗАТЕЛЬНА для публикации приложений в:
+//   - Google Play Store
+//   - Apple App Store
+//
+// Страница доступна по адресу: /terms-of-use
+// Ссылка на неё уже есть в футере (layout.js)
+//
+// Что охватывают условия:
+//   1. Принятие условий
+//   2. Правила использования сервиса
+//   3. Интеллектуальная собственность
+//   4. Контент пользователей
+//   5. Отказ от гарантий
+//   6. Ограничение ответственности
+//   7. Сторонние ссылки
+//   8. Прекращение доступа
+//   9. Применимое право (Калифорния)
+//   10. Изменения условий
+//   11. Контакты
+//
+// ВАЖНО: Когда купишь домен — обнови WEBSITE на реальный адрес
+// ============================================================
+
+// Метаданные страницы для SEO
 export const metadata = {
   title: 'Terms of Use — Kata',
   description: 'Terms of Use for Kata mobile applications and website.',
 };
 
-const EFFECTIVE_DATE = 'April 3, 2026';
+// Константы — чтобы легко обновить в одном месте
+const EFFECTIVE_DATE = 'April 3, 2026'; // Дата вступления в силу
 const CONTACT_EMAIL = 'lvvkatatech@gmail.com';
 const COMPANY_NAME = 'Kata';
-const WEBSITE = 'https://kata-es4q.vercel.app';
+const WEBSITE = 'https://kata-es4q.vercel.app'; // TODO: заменить на реальный домен
 
 export default function TermsOfUse() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Terms of Use</h1>
+
+      {/* Дата вступления в силу */}
       <p style={styles.meta}>Effective Date: {EFFECTIVE_DATE}</p>
+
+      {/* Вводный параграф */}
       <p style={styles.text}>
         Please read these Terms of Use carefully before using the {WEBSITE} website
         and mobile applications operated by {COMPANY_NAME}. By accessing or using our Service,
         you agree to be bound by these Terms.
       </p>
 
+      {/* Раздел 1: Принятие условий */}
       <Section title="1. Acceptance of Terms">
         <p style={styles.text}>
           By accessing or using our Service, you confirm that you are at least 13 years of age,
@@ -27,6 +60,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 2: Правила использования */}
       <Section title="2. Use of the Service">
         <p style={styles.text}>You agree to use the Service only for lawful purposes. You must not:</p>
         <ul style={styles.list}>
@@ -38,6 +72,7 @@ export default function TermsOfUse() {
         </ul>
       </Section>
 
+      {/* Раздел 3: Интеллектуальная собственность */}
       <Section title="3. Intellectual Property">
         <p style={styles.text}>
           All content, features, and functionality of the Service — including but not limited to
@@ -47,6 +82,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 4: Контент пользователей */}
       <Section title="4. User-Generated Content">
         <p style={styles.text}>
           If you submit any content through the Service (e.g., contact form messages), you grant
@@ -56,6 +92,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 5: Отказ от гарантий */}
       <Section title="5. Disclaimer of Warranties">
         <p style={styles.text}>
           The Service is provided on an as-is and as-available basis without warranties of
@@ -66,6 +103,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 6: Ограничение ответственности */}
       <Section title="6. Limitation of Liability">
         <p style={styles.text}>
           To the fullest extent permitted by applicable law, {COMPANY_NAME} shall not be liable
@@ -75,6 +113,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 7: Сторонние ссылки */}
       <Section title="7. Third-Party Links">
         <p style={styles.text}>
           The Service may contain links to third-party websites or services. We are not responsible
@@ -83,6 +122,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 8: Прекращение доступа */}
       <Section title="8. Termination">
         <p style={styles.text}>
           We reserve the right to suspend or terminate your access to the Service at any time,
@@ -91,6 +131,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 9: Применимое право — указываем Калифорнию т.к. адрес в Irvine, CA */}
       <Section title="9. Governing Law">
         <p style={styles.text}>
           These Terms shall be governed by and construed in accordance with the laws of the State
@@ -100,6 +141,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 10: Изменения условий */}
       <Section title="10. Changes to Terms">
         <p style={styles.text}>
           We reserve the right to modify these Terms at any time. We will notify users of
@@ -109,6 +151,7 @@ export default function TermsOfUse() {
         </p>
       </Section>
 
+      {/* Раздел 11: Контакты — обязательны для обоих сторов */}
       <Section title="11. Contact Us">
         <p style={styles.text}>If you have any questions about these Terms, please contact us:</p>
         <ul style={styles.list}>
@@ -121,6 +164,7 @@ export default function TermsOfUse() {
   );
 }
 
+// Переиспользуемый компонент секции с заголовком и контентом
 function Section({ title, children }) {
   return (
     <div style={styles.section}>
@@ -130,6 +174,7 @@ function Section({ title, children }) {
   );
 }
 
+// Стили компонентов (inline styles)
 const styles = {
   container: {
     padding: '40px',

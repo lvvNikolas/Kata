@@ -1,24 +1,54 @@
+// ============================================================
+// privacy-policy/page.js — Страница политики конфиденциальности
+// ============================================================
+// Эта страница ОБЯЗАТЕЛЬНА для публикации приложений в:
+//   - Google Play Store (требует ссылку на Privacy Policy)
+//   - Apple App Store (требует ссылку на Privacy Policy)
+//
+// Страница доступна по адресу: /privacy-policy
+// Ссылка на неё уже есть в футере (layout.js)
+//
+// Что охватывает эта политика (требования обоих сторов):
+//   1. Какие данные собираем
+//   2. Как используем данные
+//   3. Передача данных третьим лицам
+//   4. Хранение и удаление данных
+//   5. Безопасность данных
+//   6. Защита детей (COPPA) — обязательно для App Store
+//   7. Права пользователей (GDPR для EU, CCPA для California)
+//   8. Контактная информация
+//
+// ВАЖНО: Когда купишь домен — обнови WEBSITE на реальный адрес
+// ============================================================
+
+// Метаданные страницы для SEO
 export const metadata = {
   title: 'Privacy Policy — Kata',
   description: 'Privacy Policy for Kata mobile applications and website.',
 };
 
-const EFFECTIVE_DATE = 'April 3, 2026';
+// Константы — чтобы легко обновить в одном месте
+const EFFECTIVE_DATE = 'April 3, 2026'; // Дата вступления в силу
 const CONTACT_EMAIL = 'lvvkatatech@gmail.com';
 const COMPANY_NAME = 'Kata';
-const WEBSITE = 'https://kata-es4q.vercel.app';
+const WEBSITE = 'https://kata-es4q.vercel.app'; // TODO: заменить на реальный домен
 
 export default function PrivacyPolicy() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Privacy Policy</h1>
+
+      {/* Дата вступления в силу — App Store требует указывать дату */}
       <p style={styles.meta}>Effective Date: {EFFECTIVE_DATE}</p>
+
+      {/* Вводный параграф — кто мы и о чём эта политика */}
       <p style={styles.text}>
         {COMPANY_NAME} operates the {WEBSITE} website and mobile applications
         (collectively, the Service). This Privacy Policy explains how we collect, use, disclose,
         and protect your information when you use our Service.
       </p>
 
+      {/* Раздел 1: Что собираем */}
       <Section title="1. Information We Collect">
         <p style={styles.text}>We may collect the following types of information:</p>
         <ul style={styles.list}>
@@ -30,6 +60,7 @@ export default function PrivacyPolicy() {
         <p style={styles.text}>We do <strong>not</strong> collect sensitive personal data such as financial information, health data, or government ID numbers.</p>
       </Section>
 
+      {/* Раздел 2: Как используем данные */}
       <Section title="2. How We Use Your Information">
         <ul style={styles.list}>
           <li style={styles.listItem}>To provide, operate, and maintain our Service.</li>
@@ -41,6 +72,7 @@ export default function PrivacyPolicy() {
         </ul>
       </Section>
 
+      {/* Раздел 3: Передача данных — важно для обоих сторов */}
       <Section title="3. Sharing of Information">
         <p style={styles.text}>
           We do <strong>not</strong> sell, trade, or rent your personal information to third parties.
@@ -54,6 +86,7 @@ export default function PrivacyPolicy() {
         </ul>
       </Section>
 
+      {/* Раздел 4: Хранение данных */}
       <Section title="4. Data Retention">
         <p style={styles.text}>
           We retain your personal data only as long as necessary to provide the Service and fulfill
@@ -62,6 +95,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
+      {/* Раздел 5: Безопасность */}
       <Section title="5. Data Security">
         <p style={styles.text}>
           We implement industry-standard security measures to protect your information from
@@ -71,6 +105,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
+      {/* Раздел 6: Защита детей (COPPA) — ОБЯЗАТЕЛЬНО для App Store */}
       <Section title="6. Children Privacy">
         <p style={styles.text}>
           Our Service is not directed to children under the age of 13 (or 16 in the EU/EEA).
@@ -80,6 +115,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
+      {/* Раздел 7: Права пользователей (GDPR для EU) */}
       <Section title="7. Your Rights">
         <p style={styles.text}>Depending on your location, you may have the following rights regarding your personal data:</p>
         <ul style={styles.list}>
@@ -92,6 +128,7 @@ export default function PrivacyPolicy() {
         <p style={styles.text}>To exercise any of these rights, contact us at <a href={`mailto:${CONTACT_EMAIL}`} style={styles.link}>{CONTACT_EMAIL}</a>.</p>
       </Section>
 
+      {/* Раздел 8: Сторонние сервисы */}
       <Section title="8. Third-Party Services">
         <p style={styles.text}>
           Our Service may contain links to third-party websites or use third-party services
@@ -100,6 +137,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
+      {/* Раздел 9: Права жителей Калифорнии (CCPA) */}
       <Section title="9. California Privacy Rights (CCPA)">
         <p style={styles.text}>
           If you are a California resident, you have the right to know what personal data we
@@ -109,6 +147,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
+      {/* Раздел 10: Изменения политики */}
       <Section title="10. Changes to This Privacy Policy">
         <p style={styles.text}>
           We may update this Privacy Policy from time to time. We will notify you of significant
@@ -117,6 +156,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
+      {/* Раздел 11: Контакты — обязательны для обоих сторов */}
       <Section title="11. Contact Us">
         <p style={styles.text}>If you have questions or concerns about this Privacy Policy, please contact us:</p>
         <ul style={styles.list}>
@@ -129,6 +169,7 @@ export default function PrivacyPolicy() {
   );
 }
 
+// Переиспользуемый компонент секции с заголовком и контентом
 function Section({ title, children }) {
   return (
     <div style={styles.section}>
@@ -138,6 +179,7 @@ function Section({ title, children }) {
   );
 }
 
+// Стили компонентов (inline styles)
 const styles = {
   container: {
     padding: '40px',
