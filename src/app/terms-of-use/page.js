@@ -14,9 +14,9 @@ export default function TermsOfUse() {
       <h1 style={styles.title}>Terms of Use</h1>
       <p style={styles.meta}>Effective Date: {EFFECTIVE_DATE}</p>
       <p style={styles.text}>
-        Please read these Terms of Use ("Terms") carefully before using the {WEBSITE} website
-        and mobile applications (collectively, the "Service") operated by {COMPANY_NAME} ("we",
-        "us", or "our"). By accessing or using our Service, you agree to be bound by these Terms.
+        Please read these Terms of Use (&quot;Terms&quot;) carefully before using the {WEBSITE} website
+        and mobile applications (collectively, the &quot;Service&quot;) operated by {COMPANY_NAME} (&quot;we&quot;,
+        &quot;us&quot;, or &quot;our&quot;). By accessing or using our Service, you agree to be bound by these Terms.
       </p>
 
       <Section title="1. Acceptance of Terms">
