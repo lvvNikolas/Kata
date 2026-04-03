@@ -14,9 +14,9 @@ export default function TermsOfUse() {
       <h1 style={styles.title}>Terms of Use</h1>
       <p style={styles.meta}>Effective Date: {EFFECTIVE_DATE}</p>
       <p style={styles.text}>
-        Please read these Terms of Use (&quot;Terms&quot;) carefully before using the {WEBSITE} website
-        and mobile applications (collectively, the &quot;Service&quot;) operated by {COMPANY_NAME} (&quot;we&quot;,
-        &quot;us&quot;, or &quot;our&quot;). By accessing or using our Service, you agree to be bound by these Terms.
+        Please read these Terms of Use carefully before using the {WEBSITE} website
+        and mobile applications operated by {COMPANY_NAME}. By accessing or using our Service,
+        you agree to be bound by these Terms.
       </p>
 
       <Section title="1. Acceptance of Terms">
@@ -34,7 +34,7 @@ export default function TermsOfUse() {
           <li style={styles.listItem}>Attempt to gain unauthorized access to any part of the Service or its infrastructure.</li>
           <li style={styles.listItem}>Transmit any unsolicited or unauthorized advertising or promotional material.</li>
           <li style={styles.listItem}>Reproduce, duplicate, copy, sell, or exploit any portion of the Service without our express written permission.</li>
-          <li style={styles.listItem}>Engage in any conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Service.</li>
+          <li style={styles.listItem}>Engage in any conduct that restricts or inhibits anyone else from using or enjoying the Service.</li>
         </ul>
       </Section>
 
@@ -58,7 +58,7 @@ export default function TermsOfUse() {
 
       <Section title="5. Disclaimer of Warranties">
         <p style={styles.text}>
-          The Service is provided on an &quot;as is&quot; and &quot;as available&quot; basis without warranties of
+          The Service is provided on an as-is and as-available basis without warranties of
           any kind, either express or implied, including but not limited to implied warranties
           of merchantability, fitness for a particular purpose, or non-infringement. We do not
           warrant that the Service will be uninterrupted, error-free, or free of viruses or
@@ -103,8 +103,9 @@ export default function TermsOfUse() {
       <Section title="10. Changes to Terms">
         <p style={styles.text}>
           We reserve the right to modify these Terms at any time. We will notify users of
-          significant changes by updating the &quot;Effective Date&quot; above. Your continued use of the
-          Service after any changes constitutes your acceptance of the new Terms.
+          significant changes by posting the updated Terms on this page and updating the
+          Effective Date above. Your continued use of the Service after any changes constitutes
+          your acceptance of the new Terms.
         </p>
       </Section>
 

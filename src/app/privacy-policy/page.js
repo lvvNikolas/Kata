@@ -14,8 +14,8 @@ export default function PrivacyPolicy() {
       <h1 style={styles.title}>Privacy Policy</h1>
       <p style={styles.meta}>Effective Date: {EFFECTIVE_DATE}</p>
       <p style={styles.text}>
-        {COMPANY_NAME} (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the {WEBSITE} website and mobile applications
-        (collectively, the &quot;Service&quot;). This Privacy Policy explains how we collect, use, disclose,
+        {COMPANY_NAME} operates the {WEBSITE} website and mobile applications
+        (collectively, the Service). This Privacy Policy explains how we collect, use, disclose,
         and protect your information when you use our Service.
       </p>
 
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
         </p>
       </Section>
 
-      <Section title="6. Children's Privacy">
+      <Section title="6. Children Privacy">
         <p style={styles.text}>
           Our Service is not directed to children under the age of 13 (or 16 in the EU/EEA).
           We do not knowingly collect personal information from children. If you believe we have
@@ -85,7 +85,7 @@ export default function PrivacyPolicy() {
         <ul style={styles.list}>
           <li style={styles.listItem}><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
           <li style={styles.listItem}><strong>Correction:</strong> Request correction of inaccurate or incomplete data.</li>
-          <li style={styles.listItem}><strong>Deletion:</strong> Request deletion of your personal data (&quot;right to be forgotten&quot;).</li>
+          <li style={styles.listItem}><strong>Deletion:</strong> Request deletion of your personal data (right to be forgotten).</li>
           <li style={styles.listItem}><strong>Opt-Out:</strong> Opt out of any data collection or processing for marketing purposes.</li>
           <li style={styles.listItem}><strong>Portability:</strong> Request a portable copy of your data in a machine-readable format.</li>
         </ul>
@@ -95,7 +95,7 @@ export default function PrivacyPolicy() {
       <Section title="8. Third-Party Services">
         <p style={styles.text}>
           Our Service may contain links to third-party websites or use third-party services
-          (such as Google Analytics, Apple frameworks). We are not responsible for the privacy
+          such as Google Analytics and Apple frameworks. We are not responsible for the privacy
           practices of these third parties. We encourage you to review their privacy policies.
         </p>
       </Section>
@@ -112,7 +112,7 @@ export default function PrivacyPolicy() {
       <Section title="10. Changes to This Privacy Policy">
         <p style={styles.text}>
           We may update this Privacy Policy from time to time. We will notify you of significant
-          changes by posting the new policy on this page and updating the &quot;Effective Date&quot; above.
+          changes by posting the new policy on this page and updating the Effective Date above.
           We encourage you to review this page periodically.
         </p>
       </Section>
