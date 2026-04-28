@@ -26,6 +26,8 @@ const projects = [
     platforms: ['ios', 'android'],
     appStore: 'https://apps.apple.com/us/search?term=engineering+iq+test',
     playStore: 'https://play.google.com/store/search?q=engineering+iq+test&c=apps',
+    // Ссылка на внутреннюю страницу приложения (используется для перехода при клике на карточку)
+    pageLink: '/engineering-iq-privacy',
   },
   {
     name: 'Math Game',
@@ -116,12 +118,17 @@ export default function Portfolio() {
         </Reveal>
 
         <div className={styles.grid}>
-          {filtered.map((project, i) => (
-            <Reveal key={project.name} delay={i * 0.07}>
+          {filtered.map((project, i) => {
+            // Внутренний контент карточки — одинаковый для всех проектов
+            const cardContent = (
               <div className={styles.card}>
                 <div className={styles.cardTop} style={{ background: project.gradient }}>
                   <span className={styles.cardIcon}>{project.icon}</span>
                   <span className={styles.categoryBadge}>{project.category}</span>
+                  {/* Кнопка "Explore" появляется только если у проекта есть pageLink */}
+                  {project.pageLink && (
+                    <span className={styles.exploreBtn}>↗ Explore</span>
+                  )}
                 </div>
                 <div className={styles.cardBody}>
                   <h3 className={styles.cardName}>{project.name}</h3>
@@ -150,8 +157,21 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-            </Reveal>
-          ))}
+            );
+
+            return (
+              <Reveal key={project.name} delay={i * 0.07}>
+                {/* Если у проекта есть pageLink — вся карточка становится ссылкой */}
+                {project.pageLink ? (
+                  <Link href={project.pageLink} className={styles.cardLink}>
+                    {cardContent}
+                  </Link>
+                ) : (
+                  cardContent
+                )}
+              </Reveal>
+            );
+          })}
         </div>
 
         <div className={styles.footer}>

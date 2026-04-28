@@ -104,9 +104,16 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Explore badge on card top */
-.cardTop::after {
-  content: '↗ Explore';
+/* Обёртка-ссылка для кликабельных карточек (Engineering IQ Test и др.) */
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Explore badge — показывается только у карточек с pageLink */
+.exploreBtn {
   position: absolute;
   bottom: 12px;
   left: 50%;
@@ -126,7 +133,8 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.card:hover .cardTop::after {
+/* Показываем Explore при наведении на кликабельную карточку */
+.cardLink:hover .exploreBtn {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
