@@ -17,7 +17,7 @@ export const metadata = {
 
 // Константы — обновляй в одном месте
 const EFFECTIVE_DATE = 'April 28, 2026';
-const CONTACT_EMAIL = 'lvvkatatech@gmail.com';
+const CONTACT_EMAIL = 'lvniki26@gmail.com';
 const APP_NAME = 'Engineering IQ Test';
 const COMPANY_NAME = 'Kata';
 const WEBSITE = 'https://kata-es4q.vercel.app';
