@@ -104,11 +104,8 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Обёртка-ссылка для кликабельных карточек (Engineering IQ Test и др.) */
-.cardLink {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+/* Кликабельные карточки (Engineering IQ Test и др.) — cursor pointer */
+.cardClickable {
   cursor: pointer;
 }
 
@@ -134,7 +131,7 @@
 }
 
 /* Показываем Explore при наведении на кликабельную карточку */
-.cardLink:hover .exploreBtn {
+.cardClickable:hover .exploreBtn {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }

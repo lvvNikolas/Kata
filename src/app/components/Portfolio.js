@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FaAndroid, FaApple } from 'react-icons/fa';
 import Reveal from './Reveal';
@@ -84,6 +85,8 @@ const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)
 
 export default function Portfolio() {
   const [active, setActive] = useState('All');
+  // useRouter нужен для программной навигации без вложенных <a> тегов
+  const router = useRouter();
 
   const filtered =
     active === 'All' ? projects : projects.filter((p) => p.category === active);
@@ -118,14 +121,22 @@ export default function Portfolio() {
         </Reveal>
 
         <div className={styles.grid}>
-          {filtered.map((project, i) => {
-            // Внутренний контент карточки — одинаковый для всех проектов
-            const cardContent = (
-              <div className={styles.card}>
+          {filtered.map((project, i) => (
+            <Reveal key={project.name} delay={i * 0.07}>
+              {/*
+                Карточка — всегда <div>, чтобы не создавать вложенные <a>.
+                Если есть pageLink — добавляем onClick для навигации.
+                Клики на кнопки магазинов блокируют всплытие (stopPropagation),
+                чтобы они не триггерили переход карточки.
+              */}
+              <div
+                className={`${styles.card} ${project.pageLink ? styles.cardClickable : ''}`}
+                onClick={() => project.pageLink && router.push(project.pageLink)}
+              >
                 <div className={styles.cardTop} style={{ background: project.gradient }}>
                   <span className={styles.cardIcon}>{project.icon}</span>
                   <span className={styles.categoryBadge}>{project.category}</span>
-                  {/* Кнопка "Explore" появляется только если у проекта есть pageLink */}
+                  {/* Бейдж "Explore" только у карточек с pageLink */}
                   {project.pageLink && (
                     <span className={styles.exploreBtn}>↗ Explore</span>
                   )}
@@ -144,12 +155,25 @@ export default function Portfolio() {
                     </div>
                     <div className={styles.storeLinks}>
                       {project.appStore && (
-                        <a href={project.appStore} target="_blank" rel="noopener noreferrer" className={styles.storeBtn}>
+                        // stopPropagation — чтобы клик на кнопку не перешёл на pageLink
+                        <a
+                          href={project.appStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.storeBtn}
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <FaApple /> App Store
                         </a>
                       )}
                       {project.playStore && (
-                        <a href={project.playStore} target="_blank" rel="noopener noreferrer" className={styles.storeBtn}>
+                        <a
+                          href={project.playStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.storeBtn}
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <FaAndroid /> Play
                         </a>
                       )}
@@ -157,21 +181,8 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-            );
-
-            return (
-              <Reveal key={project.name} delay={i * 0.07}>
-                {/* Если у проекта есть pageLink — вся карточка становится ссылкой */}
-                {project.pageLink ? (
-                  <Link href={project.pageLink} className={styles.cardLink}>
-                    {cardContent}
-                  </Link>
-                ) : (
-                  cardContent
-                )}
-              </Reveal>
-            );
-          })}
+            </Reveal>
+          ))}
         </div>
 
         <div className={styles.footer}>
